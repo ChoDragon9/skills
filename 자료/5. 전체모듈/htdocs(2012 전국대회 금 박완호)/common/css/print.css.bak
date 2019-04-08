@@ -1,0 +1,3 @@
+@charset "euc-kr";
+
+#header, #footer, .lnb, .sub_visual, .page_title { display:none }

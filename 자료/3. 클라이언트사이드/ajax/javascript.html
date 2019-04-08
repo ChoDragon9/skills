@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX 예제</title>
+	</head>
+<body>
+	<div id="box">
+	</div>
+	<button onclick="sendRequest();">클릭</button>
+	<script>
+		function selectid(id){
+			return document.getElementById(id);
+		}
+		//송신, 수신
+		function sendRequest(){
+			xmlHttp = new XMLHttpRequest(); //객체 생성
+			xmlHttp.open("POST","./test.txt",true);
+			//open('GET or POST','URL','ture는 비동기화, false는 동기화'); -> 전송방식 설정 및 전송준비
+			xmlHttp.onreadystatechange = getResponseText;
+			//통신상태가 변하면 생기는 이벤트 핸들러
+			xmlHttp.send(null);
+		}
+
+		//값을 가져옴
+		function getResponseText(){
+			var box = selectid("box");
+			if(xmlHttp.readyState == 4){ //수신완료
+				if(xmlHttp.status == 200){ //서버의 상태
+					box.innerHTML = xmlHttp.responseText;
+				}else{ //페이지를 찾지 못했을 때 404
+					box.innerHTML = 'HTTP상태가 불안정합니다.';
+				}
+			}else{
+				box.innerHTML = '수신이 불안정합니다.';
+			}
+		}
+	</script>
+</body>
+</html>

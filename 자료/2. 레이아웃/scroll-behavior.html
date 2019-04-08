@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0 }
+    .box { width: 100%; height: 100vh; }
+    .box:nth-of-type(1) { background-color: #f00 }
+    .box:nth-of-type(2) { background-color: #0f0 }
+    .box:nth-of-type(3){ background-color: #00f }
+
+    html { scroll-behavior: smooth }
+  </style>
+</head>
+<body>
+<a href="#page-1">1</a>
+<a href="#page-2">2</a>
+<a href="#page-3">3</a>
+<div class="box" id="page-1"></div>
+<div class="box" id="page-2"></div>
+<div class="box" id="page-3"></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<style type="text/css">
+#bigbox { width:300px; height:300px; padding:10px; float:left; background:#f0f0f0; border:1px solid #dbdbdb; }
+	#box { width:200px; height:100px; float:left; background:#f0f; }
+		#box li { width:50px; height:50px; background:#999; }
+#trash { width:300px; height:300px; float:left; background:#333; }
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#bigbox #box").draggable({
+		revert : 'invalid',
+		hepler : 'clone',
+		cursor : 'move'
+	});
+
+	$("#trash").droppable({
+		accept : "#bigbox #box",
+		activeClass : "ui-state-highlight",
+		drop : function(event, ui){
+			deleteImage(ui.draggable); //ui.draggable 드래그 된것
+		}
+	});
+});
+
+function deleteImage($item){
+	$item.fadeOut(function(){
+		$("<ul id='box'><li>TEXT</TEXT><li>TEXT2</li></ul>").appendTo("#trash");
+	});
+}
+</script>
+</head>
+<body>
+<div id="bigbox">
+	<ul id="box">
+		<li>TEXT</li>
+		<li>TEXT2</li>
+	</ul>
+</div>
+<div id="trash">
+</div>
+</body>
+</html>

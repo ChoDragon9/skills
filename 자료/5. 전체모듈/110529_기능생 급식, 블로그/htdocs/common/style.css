@@ -1,0 +1,98 @@
+/*charset
+--------------------------------------*/
+@charset "utf-8";
+
+/*common
+--------------------------------------*/
+ul,li,form,input,body,img { margin:0px; padding:0px; border:0px; }
+ul,li { list-style:none; }
+
+.ft30 { font-size:30px; }
+.ft14 { font-size:14px; }
+.ft12 { font-size:12px; }
+.ft11 { font-size:11px; }
+.ft10 { font-size:10px; }
+.fw { font-weight:bold; }
+.cc { color:#ccc; }
+.c9 { color:#999; }
+.cf { color:#fff; }
+.tc { text-align:center; }
+.tr { text-align:right; }
+.bc { border:solid 1px #ccc; padding:5px 0 0 5px; }
+.w20 { width:20%; }
+.w30 { width:30%; }
+.w50 { width:50%; }
+.w60 { width:60%; }
+.w80 { width:80%; }
+.w100 { width:100%; }
+.cs { cursor:pointer; }
+/*style
+--------------------------------------*/
+body { font-family:dotum; }
+#wrap { width:1280px; float:left; }
+	#top_area { width:1280px; height:31px; background:url("../img/topbg.jpg") repeat-x; float:left; }
+	#top_area a { text-decoration:none; color:#000; font-weight:bold; }
+		#top_area ul { width:260px; height:31px; margin:10px auto; }
+		#top_area li { width:130px; height:31px; float:left; }
+	#main_area { width:1280px; float:left; }
+		#main_t { width:1280px; height:120px; background:url("../img/bg_t.jpg") no-repeat; float:left; }
+		#main_m { width:1280px; background:url("../img/bg_m.jpg") repeat-y; float:left; overflow:hidden; }
+		/*관리자
+		--------------------------*/
+			#list_area { margin-left:310px; width:660px; float:left; }
+				#list_area a { text-decoration:none; color:#666; }
+				#list_area ul.list_t { width:660px; height:40px; float:left; }
+				#list_area ul.list_t a { text-decoration:none; color:#999; }
+					#list_area ul.list_t li { float:left; }
+				#list_area ul.list_m { width:660px; height:12px; float:left; }
+					#list_area ul.list_m li { float:left; width:94px; height:20px; text-align:right; }
+				#list_b { width:660px; float:left; }
+					#list_b a:link { text-decoration:none; color:#666; }
+					#list_b a:visited { text-decoration:none; color:#666; }
+					#list_b a:hover li { text-decoration:none; color:#666; background:#ffe3ca; }
+					#list_b ul { width:660px; margin-left:3px; }
+					#list_b li { float:left; width:84px; height:70px; text-align:right; padding:5px 5px 0 0; margin:3px 3px 0 0; border:solid 1px #ccc; }
+		/*회원페이지
+		----------------------------*/
+			#reser_area { margin-left:310px; width:660px; float:left; }
+				#reser_area a { text-decoration:none; color:#666; }
+				#reser_area ul.reser_t { width:660px; height:40px; float:left; }
+				#reser_area ul.reser_t a { text-decoration:none; color:#999; }
+					#reser_area ul.reser_t li { float:left; }
+				#reser_area ul.reser_m { width:660px; height:12px; float:left; }
+					#reser_area ul.reser_m li { float:left; width:94px; height:20px; text-align:right; }
+				#reser_b { width:660px; float:left; }
+					#reser_b a:link { text-decoration:none; color:#666; }
+					#reser_b a:visited { text-decoration:none; color:#666; }
+					#reser_b a:hover li { text-decoration:none; color:#666; background:#ffe3ca; }
+					#reser_b ul { width:660px; margin-left:3px; }
+					#reser_b li { float:left; width:84px; height:70px; text-align:right; padding:5px 5px 0 0; margin:3px 3px 0 0; border:solid 1px #ccc; }
+				/*sub
+				-----------------------*/
+				#reser_area ul.w1 { width:660px; height:60px; float:left; }
+				#reser_area ul.w2 { width:660px; float:left; }
+					#reser_area ul.w2 li { height:18px; border:solid 1px #ccc; font-size:13px; color:#999; margin:0 10px 10px 0; float:left; padding:5px 5px 0 5px; text-align:center; }
+				#reser_area ul.w3 { width:660px; float:left; padding-top:40px; }
+					#reser_area ul.w3 li { float:left; height:20px; margin-bottom:5px; border-bottom:solid 1px #ccc; }
+				#reser_area ul.w4 { width:660px; height:50px; float:left; }
+				/*admin sub
+				----------------------*/
+				#list_area ul.w1 { width:660px; height:60px; float:left; }
+				#list_area ul.w2 { width:660px; float:left; }
+					#list_area ul.w2 li { height:18px; border:solid 1px #ccc; font-size:13px; color:#999; margin:0 10px 10px 0; float:left; padding:5px 5px 0 5px; text-align:center; }
+				#list_area ul.w3 { width:660px; float:left; padding-top:40px; }
+					#list_area ul.w3 li { float:left; height:20px; margin-bottom:5px; }
+				#list_area ul.w4 { width:660px; height:50px; float:left; }
+
+		#main_b { width:1280px; height:169px; background:url("../img/bg_b.jpg") no-repeat; float:left; }
+
+/*초기인증*/
+#password { width:415px; height:285px; background:url("../img/login_ok.jpg") no-repeat; margin:0px auto; padding:415px 0 0 585px; }
+	#password ul { width:200px; float:left; }
+	#password li { float:left; margin-bottom:8px; }
+	#password a { text-decoration:none; color:#666; }
+#pwd { width:1000px; height:700px; float:left; }
+	#pwd li { float:left; }
+#join { width:430px; height:385px; background:url("../img/join.jpg") no-repeat; margin:0px auto; padding:315px 0 0 570px; }
+	#join ul { width:200px; float:left; }
+	#join li { margin-bottom:12px; }

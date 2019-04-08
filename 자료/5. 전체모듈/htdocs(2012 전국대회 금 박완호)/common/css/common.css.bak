@@ -1,0 +1,59 @@
+@charset "euc-kr";
+
+/* Global Reset */
+* { margin:0; padding:0 }
+html, body { width:100%; height:100% }
+body { font-size:76%; font-family:'Dotum','µ¸¿ò'; color:#666; min-width:850px }
+img { border:0 none; vertical-align:top }
+ul, li, dl, dt, dd { list-style:none }
+a { color:#666; text-decoration:none }
+a:hover { color:#000; text-decoration:underline }
+input, button, select, textarea { font:0.94em 'Dotum','µ¸¿ò'; color:#666 }
+textarea { width:90%; border:1px solid #dfdfdf; padding:5px }
+fieldset { border:0 none }
+legend { display:none }
+label { cursor:pointer }
+
+/* Layout */
+#wrap { float:left; width:100%; height:100% }
+#header { float:left; width:100%; height:110px; background:url(/img/bg_header.png) repeat-x }
+#content { float:left; width:100% }
+#footer { float:left; width:100% }
+
+/* Header */
+#header_inner { width:850px; margin:0 auto; height:100%; position:relative; overflow:hidden }
+#header_inner h1#logo { position:absolute; top:39px; left:20px; }
+#header_inner ul.util { position:absolute; top:8px; right:0 }
+#header_inner ul.util li { float:left; margin-left:21px }
+#header_inner ul.util li span { color:#fff; margin-top:-2px; float:left }
+
+/* Content */
+#content_inner { width:850px; margin:0 auto; position:relative }
+
+/* Footer */
+#footer { float:left; margin-top:30px; border-top:2px solid #bb0909  }
+#footer_inner { width:850px; margin:0 auto; position:relative }
+#footer_inner address { margin-top:20px; font-style:normal; text-align:center; line-height:130% }
+
+/* Navigation */
+.gnb { position:absolute; top:43px; left:135px }
+.gnb > ul > li > a { font:bold 1.3em 'Malgun Gothic','¸¼Àº °íµñ'; color:#666 }
+.gnb > ul > li > a:hover { color:#bb0909; text-decoration:none }
+.gnb > ul > li { float:left; margin-left:50px; position:relative }
+.gnb > ul > li > ul { position:absolute; top:47px; left:0; float:left; width:1000%; display:none } 
+.gnb > ul > li > ul > li { float:left; margin-right:10px }
+.gnb > ul > li > ul > li a { color:#fff; font:bold 1em 'Malgun Gothic','¸¼Àº °íµñ'; }
+.gnb > ul > li > ul > li a:hover { color:#ffff00; text-decoration:none }
+
+/* Commont */
+.f_left { float:left }
+.f_right { float:right }
+.mt30 { margin-top:30px }
+.mt15 { margin-top:15px }
+.mb30 { margin-bottom:30px }
+.mb15 { margin-bottom:15px }
+.bold { font-weight:bold }
+.color { color:#ffff00 }
+.red { color:#bb0909 }
+.width100 { width:100% }
+.center { text-align:center }

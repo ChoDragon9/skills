@@ -1,0 +1,28 @@
+* { margin:0; padding:0; font-family:'돋움',dotum; }
+ul, li { list-style:none; }
+input[type="text"], input[type="password"] { width:100%; height:23px; }
+input[type="button"], input[type="reset"], input[type="submit"] { width:100%; padding:1% 0; }
+
+#wrapper { width:100%; float:left; background:url(../img/topbg.jpg) repeat-x; }
+	#wrap { width:90%; padding:0 5%; }
+		#header { width:100%; height:40px; float:left; text-align:center; padding-top:10px; }
+			#header a { color:#fff; text-decoration:none; font-family:'맑은 고딕'; font-weight:bold; font-size:100%; }
+		#content { width:100%; float:left; padding:3% 0 2% 0; margin-top:40px; }
+			#login { width:40%; padding:2% 5%; margin:0 auto; border:solid 1px #dbdbdb; background:#f0f0f0; }
+				#login ul,#login li { width:100%; text-align:center; }
+				#login li { margin-bottom:5px; }
+			#findfrm { width:80%; padding:2%; margin:0 auto; border:solid 1px #dbdbdb; background:#f0f0f0; }
+			#findfrm input[type="button"] { width:70px; }
+			#findfrm ul { width:100%; }
+			#findfrm li { width:100%; margin-bottom:15px; }
+			#find { width:80%; min-height:100px; padding:2%; margin:0 auto; border:solid 1px #999; background:#dbdbdb; }
+				#find textarea { width:100%; height:500px; }
+#footer { width:100%; padding:2% 0; float:left; background:#f0f0f0; border-top:solid 1px #dbdbdb; border-bottom:solid 1px #dbdbdb; font-size:11px; text-align:center; text-transform:uppercase; }
+
+	/*
+	#login { width:200px; margin:20px auto 0; }
+	#login fieldset { padding:30px; }
+	#login li { margin-top:20px; text-align:center; }
+	#find { width:100%; height:100%; float:left; border:solid 1px #dbdbdb; margin-top:10px; text-align:center; }
+		#find textarea { width:96%; margin:2%; font-size:100%; }
+	*/

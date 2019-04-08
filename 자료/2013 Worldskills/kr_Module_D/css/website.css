@@ -1,0 +1,147 @@
+* { margin:0; padding:0;  outline:none; border:0 none; list-style:none;}
+/* Common */
+header ,
+aside,
+.main,
+.title,
+footer{ margin:0 auto; width:980px; position:relative; }
+
+#st-thomas-church figure figcaption,
+tr,
+.tweets ul li img,
+.tweets ul li 
+{ -webkit-transition:all .5s; -ms-transition:all .5s;}
+
+body { font-family:Myriad pro; background:url('../extraimages/bg_menu.png') repeat-x; font-size:1em; line-height:1em; #222; }
+
+h1,h2,h3,h4 { font-family:Century Gothic; }
+a { text-decoration:none; }
+
+/* Header*/
+header { height:120px; color:#fff; }
+header div { position:absolute; right:0; top:30px; font-size:.7em; }
+header div a { color:#ccc; }
+header nav { position:absolute; top:70px; right:0; }
+header nav > ul > li { float:left; margin-left:80px; text-align:left; position:relative; }
+header nav > ul > li a:hover+ul { display:block; } 
+header nav > ul > li a:hover { color:#fc0; }
+header nav > ul >  li ul { display:none; position:absolute; left:0; top:10px; width:400px; }
+header nav > ul >  li ul li { float:left; font-size:.9em; margin-top:10px; margin-right:20px; }
+header nav li { float:left; }
+header nav a { color:#fff; }
+header nav a:hover { text-decoration:underline; }
+
+.title h1 { font-size:1.3em; margin-top:40px;  position:absolute; top:-130px; left:0; color:#fc0; }
+.title h2 { font-size:.9em; font-weight:normal;  position:absolute; top:-60px; left:0; color:#fff; }
+
+/* featured*/
+.title { padding-top:30px; background-color:#fff; }
+#featured { width:600px; float:left; }
+#featured ul { width:600px; height:400px; position:relative; overflow:hidden; border:1px solid #ededed; border-radius:5px; background-color:#222; }   
+#featured ul li { width:600px; height:400px; position:absolute; border-radius:5px; }
+#featured ul li img { width:100%; }
+#featured ul li:not(:first-child){ left:600px; }
+#featured ul li.all img { width:50%; height:50%; float:left; }
+#featured div { width:12px; height:12px; border-radius:50%; background-color:#111; float:left; margin-right:5px; margin-top:3px; cursor:pointer; }
+#feature-control-1 { margin-left:260px; }
+
+.quotes { width:300px; height:400px; float:left; margin-left:40px; background:#ededed url('../extraimages/quote.png') no-repeat; border:1px solid #dbdbdb; border-radius:10px; }
+blockquote { width:96%; text-align:center; padding:2%; }
+blockquote:first-child { margin-top:90px; }
+blockquote+blockquote { margin-top:20px; }
+blockquote p:not(.author) { text-align:center; font-size:1.5em; font-style:italic; margin-bottom:20px; line-height:1.5em; }
+blockquote p:not(.author):after,blockquote p:not(.author):before { content:'"'; }
+b { font-weight:normal; }
+.author { color:#999;} 
+
+.content > div,.content > section{  padding-top:30px; padding-bottom:30px; width:100%; float:left; border-top:1px solid #dbdbdb; }
+.content p  { font-family:Verdana, Geneva, sans-serif; }
+.content h3 { font-size:1.3em; }
+.content h3+p { font-size:.8em; color:#999; margin-bottom:10px; }
+.content h3+p~p { font-size:.9em; line-height:1.5em; }
+.content p:last-child { margin-top:20px;}
+
+#id-for-title-1 { text-align:center; margin-top:30px; background-color:rgba(0,90,195,.2); }
+#id-for-title-1 h3 { margin-bottom:20px; }
+#id-for-title-1 a:nth-child(3) { background-color:rgb(0,90,195); padding:10px; border-radius:5px; color:#fff; background:rgb(0,90,195) url('../media/icon04.png') no-repeat; background-size:20px auto; padding-left:20px; background-position:0 8px; }
+#id-for-title-1 a[href$=".pdf"]:after  { content:'[' attr(href) ']'; margin-left:3px; }
+#id-for-title-1 p { font-size:.9em; color:#111; }
+.content .content-title { margin-bottom:20px; width:100%; float:left; }
+
+.content-title { font-size:2em; font-weight:normal; color:rgb(0,90,195); }
+.content-title span {font-size:.6em; font-family:Myriad pro; margin-top:20px; }
+
+#st-thomas-church { padding-bottom:30px; }
+#st-thomas-church figure { float:left; margin-right:20px; }
+#st-thomas-church figure img { border-radius:5px; box-shadow:0 2px 2px #333; border:1px solid #333; display:block; position:relative; z-index:10;}
+#st-thomas-church figure figcaption { margin-top:-15px;  position:relative; z-index:9;}
+#st-thomas-church figure img:hover+figcaption { margin-top:10px; }
+
+table { width:600px; float:left; border-collapse:collapse; text-align:center; }
+caption { background-color:rgb(0,90,195); color:#fff; line-height:35px; margin-bottom:1px; }
+th { background-color:#222; color:#fff; text-transform:capitalize; font-size:.9em; line-height:30px; font-weight:normal;}
+td { line-height:35px; font-size:.9em; }
+tr:nth-child(even) { background-color:#ededed; }
+tr:hover { background-color:#fc0; }
+#diagram { float:right; width:340px; }
+#diagram img { width:100%; }
+#diagram~p { width:100%; float:left; }
+
+.main section:last-child { background-color:rgba(0,90,195,.2); padding-bottom:0; margin-bottom:30px; width:940px; padding:20px; }  
+#id-for-title-4 figure { float:left; width:280px; }
+#id-for-title-4 .figures { margin-top:20px; }
+#id-for-title-4 figure:nth-child(2),#id-for-title-4 figure:nth-child(5) { margin:0 40px; }
+#id-for-title-4 figure img { border-radius:5px; box-shadow:0 3px 3px #333; }
+#id-for-title-4 figcaption { width:100%; margin-top:10px; margin-bottom:20px; font-family:Verdana, Geneva, sans-serif; font-size:.9em; }
+#id-for-title-4 { border-bottom:1px solid #dbdbdb; float:left; }
+
+aside > div,aside > section { width:100%; float:left; }
+aside .figures { width:300px; float:left; }
+aside .figures h4 { font-size:2em; font-weight:normal; color:rgb(0,90,195); margin-bottom:20px; }
+aside .figures figure { float:left; width:48%; }
+aside .figures figure+figure { float:right; }
+aside .figures figure img { border-radius:5px; box-shadow:0 3px 3px #333; }
+aside .figures figure figcaption { font-family:Verdana, Geneva, sans-serif; font-size:.8em; margin-top:3px; }
+
+aside .figures+section { width:640px; float:right; }
+aside .figures+section h2 { float:left; }
+aside .figures+section h4 { float:left; margin-left:10px; padding-top:10px; color:#ccc; }
+aside .figures+section video { width:48%; float:left; margin-top:10px; }
+aside .figures+section video+video { float:right; }
+
+aside section:last-child { width:100%; float:left; margin-top:30px; padding-top:30px; border-top:1px solid #dbdbdb; }
+aside section:last-child h2 { margin-bottom:20px; }
+.tweets  { width:978px; border:1px solid #dbdbdb; background-color:#ededed; float:left; border-radius:5px;  height:402px;}
+.tweets h4 {width:100%; float:left;  text-align:center; line-height:50px; font-family:Myriad pro; font-size:1.3em; }
+.tweets ul { width:100%; float:left; }
+.tweets ul li { width:96%; padding:2%; border-top:1px solid #dbdbdb; float:left; font-family:Verdana, Geneva, sans-serif; }
+.tweets ul li img { float:left; margin-right:10px; border-radius:3px; }
+.tweets ul li div { font-size:.9em; font-weight:bold; color:rgb(0,90,195); }
+.tweets ul li p { font-size:.8em; color:#222; }
+.tweets ul li p a { text-decoration:underline; color:#111; }
+.tweets ul li img:hover { -ms-transform:scale(1.5,1.5);-webkit-transform:scale(1.5,1.5); } 
+.tweets ul li:hover img { -ms-transform:scale(1.5,1.5);-webkit-transform:scale(1.5,1.5); } 
+.tweets ul li:hover { background-color:#fc0; }
+.tweets ul li:hover img { margin-right:30px; }
+ 
+/* Footer */
+footer nav { float:left; font-family:Verdana, Geneva, sans-serif; margin:20px 0; height:50px; }
+footer nav li { float:left; margin-right:20px; }
+footer nav li a { color:rgb(0,90,195); font-size:.9em; }
+footer p { float:right;  margin:20px 0; }
+
+/* Print Css */
+@media print {
+	footer ,
+	header,
+	.title,
+	#featured,
+	aside,
+	#id-for-title-4,
+	.quotes,
+	a,
+	img,
+	.main section:last-child .content-title
+	{ display:none; }	
+	table { width:100%; }
+}

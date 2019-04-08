@@ -1,0 +1,31 @@
+<style type="text/css">
+#sort, #sort2 { float:left; margin-left:20px; }
+#sort li { width:200px; height:20px; background:#ffabc0; margin-bottom:10px; cursor:pointer; }
+#sort2 li { width:200px; height:20px; background:#ff0abc; margin-bottom:10px; cursor:pointer; }
+</style>
+<script type="text/javascript">
+$("#sort, #sort2").sortable({
+	connectWith : '.sort',
+	item : 'li',
+	helper:"original",
+	revert:"invalid", //돌아 갈때 천천히 감
+	start : function(e, ui){
+		id = $(ui.helper).attr("id");
+		$("#"+id).html("This id is #"+id).css("cursor","move");
+	},
+	stop : function(e, ui){
+		$("#"+id).css("cursor","pointer");
+	}
+}).disableSelection();
+</script>
+<ul id="sort" class="sort">
+	<li id="id1"></li>
+	<li id="id2"></li>
+	<li id="id3"></li>
+</ul>
+
+<ul id="sort2" class="sort">
+	<li id="id4"></li>
+	<li id="id5"></li>
+	<li id="id6"></li>
+</ul>

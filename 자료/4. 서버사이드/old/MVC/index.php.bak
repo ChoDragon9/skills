@@ -1,0 +1,8 @@
+<?php
+session_start();
+
+include('app/controller.php');
+include('app/model.php');
+
+new Controller();
+?>

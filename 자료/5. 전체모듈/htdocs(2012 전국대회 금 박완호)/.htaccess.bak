@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^([^.+])/?$ index.php?param=$1 [L]

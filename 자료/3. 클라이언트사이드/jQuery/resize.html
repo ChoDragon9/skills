@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<style type="text/css">
+#container { width:300px; height:300px; float:left; }
+#resizeble { width:150px; height:150px; padding:0.5em; margin:50px; }
+#resizeble h3 { text-align:center; margin:0; }
+.ui-resizable-helper { border:1px dotted gray; }
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#resizable").resizable({
+//		animate : true, //애니 메이션 효과를 줄수 있음, ui-widget-content,
+		containment : "#container", //범위지정
+		delay : 1000, //ms로 시간 지나면 resize
+		distance : 40 //px만틈 움직이면 resize
+	});
+});
+</script>
+</head>
+<body>
+<div id="container" class="ui-widget-content">
+	<div id="resizable" class="ui-widget-content">
+		RESIZE
+	</div>
+</div>
+</body>
+</html>

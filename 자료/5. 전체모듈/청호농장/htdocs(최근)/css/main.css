@@ -1,0 +1,40 @@
+/* Main content start
+------------------------------------------------*/
+#mcon { width:900px; height:770px; float:left; }
+
+	#mani { width:900px; height:385px; float:left; }
+		#mani_left { width:690px; height:340px; float:left; margin-top:20px; margin-right:15px; position:relative; }
+			#mani_left > img { position:absolute; top:0; left:0; }
+		#mani_right { width:195px; height:340px; float:left; margin-top:20px; }
+			#mani_top { width:195px; height:85px; float:left; }
+			#mani_bottom { width:195px; height:240px; float:left; margin-top:15px; background:url(/animation/manimenubg.png) no-repeat; position:relative; }
+				#menutxt { width:195px; height:240px; float:left; position:relative; z-index:2; }
+				#menubg { width:195px; height:34px; float:left; position:absolute; left:0; top:25px; z-index:1; }
+
+	#mproduct { width:900px; height:255px; float:left; }
+		#mproduct > div.title{ width:900px; height:52px; float:left; }
+			#mproductimg { width:900px; height:200px; float:left; }
+			#mproductimg > ul { width:176px; height:200px; float:left; margin-left:5px; }
+			#mproductimg > ul:first-child { margin-left:0; }
+			#mproductimg > ul > li:first-child { width:174px; height:133px; border:solid 1px #dbdbdb; float:left; margin-bottom:10px; }
+			#mproductimg > ul > li:first-child > a > img { width:174px; height:133px; }
+			#mproductimg > ul > li { width:176px; text-align:center; font-size:12px; line-height:20px; }
+
+	#msearch { width:250px; height:105px; float:left; margin-right:30px; background:url(/img/msearch.png) no-repeat 180px 16px; }
+		#msearch > div.title { width:250px; height:37px; float:left; }
+		#msearch > div.img { width:250px; height:43px; float:left; }
+		#msearch > form > div.input { width:203px; height:25px; float:left; }
+		#msearch > form > div.input > input[type="text"] { width:195px; height:19px; border:solid 3px #857c5f; float:left; }
+		#msearch > form > div.submit { width:47px; height:25px; float:left; }
+		#msearch > form > div.submit > input[type="submit"] { width:47px; height:25px; float:left; background:url(/img/msearchsubmit.png) no-repeat; color:#fff; font-size:12px; }
+
+	#mboard { width:320px; height:105px; float:left; margin-right:30px; }
+		#mboard > div.title { width:320px; height:29px; float:left; }
+		#mboard > ul { width:320px; height:10px; float:left; font-size:11px; margin-bottom:11px; }
+		#mboard > ul > li:first-child { width:230px; height:10px; float:left; text-align:left; }
+		#mboard > ul > li { width:90px; height:10px; float:left; color:#999; text-align:right; }
+		#mboard > ul > li > a { color:#333; }
+
+	#mbn { width:270px; height:105px; float:left; }
+/* Main content end
+------------------------------------------------*/

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    * {margin: 0; padding:0}
+    body, html { width: 100%; height: 100%; }
+    input[type="checkbox"]:checked+.board { animation: animate-board 4s; }
+    input[type="checkbox"]:checked+.board .box { animation: animate-box 2s 2s; }
+    .board {
+      margin: 50px;
+      width: 800px; height: 600px; float: left;
+      position: relative;
+    }
+    .box {
+      position: absolute;
+      width: 200px; height: 200px; float: left;
+      background-image: url(./img.jpg);
+      background-size: 800px 600px;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+    }
+
+    .box:nth-of-type(1),
+    .box:nth-of-type(5),
+    .box:nth-of-type(9) {left: 12.5%;}
+    .box:nth-of-type(2),
+    .box:nth-of-type(6),
+    .box:nth-of-type(10) {left: 37.5%; background-position-x: -200px}
+    .box:nth-of-type(3),
+    .box:nth-of-type(7),
+    .box:nth-of-type(11) {left: 62.5%; background-position-x: -400px}
+    .box:nth-of-type(4),
+    .box:nth-of-type(8),
+    .box:nth-of-type(12) {left: 87.5%; background-position-x: -600px}
+    .box:nth-of-type(1),
+    .box:nth-of-type(2),
+    .box:nth-of-type(3),
+    .box:nth-of-type(4) {top: 16.6666%;}
+    .box:nth-of-type(5),
+    .box:nth-of-type(6),
+    .box:nth-of-type(7),
+    .box:nth-of-type(8) {top: 50%; background-position-y: -200px}
+    .box:nth-of-type(9),
+    .box:nth-of-type(10),
+    .box:nth-of-type(11),
+    .box:nth-of-type(12) {top: 83.333%; background-position-y: -400px}
+
+    @keyframes animate-board {
+      0% {}
+      50% {width: 800px; height: 600px; transform: translate(0, 0)}
+      60% {width: 1000px; height: 800px; transform: translate(-100px, -100px)}
+      70% {width: 800px; height: 600px; transform: translate(0, 0)}
+      100% {width: 1000px; height: 800px; transform: translate(-100px, -100px)}
+    }
+    
+    @keyframes animate-box {
+      50% {transform: translate(-50%, -50%) scale(1)}
+      100% {transform: translate(-50%, -50%) scale(0)}
+    }
+  </style>
+</head>
+<body>
+<input type="checkbox">
+<div class="board">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+</body>
+</html>

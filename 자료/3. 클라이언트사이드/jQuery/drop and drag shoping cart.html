@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<style type="text/css">
+h1 { padding:.2em; margin:0; }
+#products { float:left; width:500px; margin-right:2em; }
+#cart { width:200px; float:left; margin-top:1em; }
+#cart ol { margin:0; padding:1em 0 1em 3em; }
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#catalog").accordion();
+	$("#catalog li").draggable({
+		appentTo : "body",
+		helper : "clone"
+	});
+	$("#cart ol").droppable({
+		activeClass : "ui-state-default",
+		hoverClass : "ui-state-hover",
+		accept : ":not(.ui-sortable-helper)",
+		drop : function(event,ui){
+			$(this).find(".placeholder").remove();
+			$("<li></li>").text(ui.draggable.text()).appendTo(this);
+		}
+		//$("<p>Test</p>").appendTo(".inner");
+	}).sortable({
+		items:"li:not(.placeholder)",
+		sort:function(){
+			$(this).removeClass("ui-state-default");
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="products">
+	<h1 class="ui-widget-header">Products</h1>
+	<div id="catalog">
+		<h2><a href="#">T-Shirts</a></h2>
+		<div>
+			<ul>
+				<li>Lolcat Shirt</li>
+				<li>Cheeseburget Shirt</li>
+				<li>Buckit Shirt</li>
+			</ul>
+		</div>
+		<h2><a href="#">Bags</a></h2>
+		<div>
+			<ul>
+				<li>Zebra Striped</li>
+				<li>Black Leather</li>
+				<li>Alligator Leather</li>
+			</ul>
+		</div>
+		<h2><a href="#">Gadgets</a></h2>
+		<div>
+			<ul>
+				<li>iPhone</li>
+				<li>iPod</li>
+				<li>iPad</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="cart">
+	<h1 class="ui-widget-header">Shopping Cart</h1>
+	<div class="ui-widget-content">
+		<ol>
+			<li class="placeholder">Add your items here</li>
+		</ol>
+	</div>
+</div>
+</body>
+</html>

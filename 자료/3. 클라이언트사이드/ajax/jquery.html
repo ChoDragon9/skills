@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX 예제</title>
+	</head>
+<body>
+	<div id="box">
+	</div>
+	<button onclick="sendRequest();">클릭</button>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script>
+		function sendRequest(){
+			$.get("./test.txt", function (data) {
+				$("#box").html(data)
+			})
+		}
+	</script>
+</body>
+</html>

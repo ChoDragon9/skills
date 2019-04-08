@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS 레이아웃 및 드롭다운 메뉴</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<body>
+<div id="header_wrap">
+	<div id="header">
+		<h1>LOGO</h1>
+		<ul class="nav">
+			<li><a href="#">Link 1</a></li>
+			<li>
+				<a href="#">Link 2</a>
+				<ul>
+					<li><a href="#">Link2.1</a></li>
+					<li><a href="#">Link2.2</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Link 3</a></li>
+			<li>
+				<a href="#">Link 4</a>
+				<ul>
+					<li><a href="#">Link4.1</a></li>
+					<li><a href="#">Link4.2</a></li>
+					<li><a href="#">Link4.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Link 5</a></li>
+		</ul>
+		<ul class="gnb">
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">LOGIN</a></li>
+			<li><a href="#">SITEMAP</a></li>
+			<li><a href="#">SEARCH</a></li>
+			<li><a href="#">CONTACT</a></li>
+		</ul>
+	</div>
+</div>
+<div id="container">
+	<div id="content">
+		<p class="msg success">
+			success - this is a success mssage.
+			<img src="./img/ico_cancle.png" alt="cancle" title="cancle" />
+		</p>
+		<p class="msg failed">
+			success - this is a success mssage.
+			<img src="./img/ico_cancle.png" alt="cancle" title="cancle" />
+		</p>
+		<div class="title">
+			<h2>TEXT</h2>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec mi volutpat libero feugiat dignissim. Praesent tincidunt, tellus vel rutrum consequat, felis purus convallis purus, ut fermentum sapien tellus in dolor. Donec commodo tempor nulla eget tempor. Vivamus bibendum leo eget augue consequat ut venenatis sapien sagittis. Duis eget dolor odio. Quisque ac eros quis ante cursus varius ut ac purus. Nullam nunc sapien, dignissim eu adipiscing eget, condimentum ac diam. Etiam vel risus sem. Morbi in mi eu odio consectetur consectetur. Vestibulum accumsan scelerisque lacus vitae gravida. Mauris id ante sit amet urna gravida sollicitudin et nec erat. Ut sed luctus nisi.
+			</p>
+		</div>
+		<div class="title">
+			<h2>GALLERY</h2>
+			<ul id="gallery">
+				<li><img src="./img/Desert.jpg" /></li>
+				<li class="center"><img src="./img/Lighthouse.jpg" /></li>
+				<li><img src="./img/Tulips.jpg" /></li>
+			</ul>
+		</div>
+	</div>
+	<div id="section">
+		<div id="login">
+			<ul class="label">
+				<li><label for="id">아이디</label></li>
+				<li><label for="pwd">패스워드</label></li>
+			</ul>
+			<ul class="input">
+				<li><input type="text" name="id" id="id" /></li>
+				<li><input type="password" name="pwd" id="pwd" /></li>
+			</ul>
+			<input type="submit" value="로그인" />
+		</div>
+	</div>
+</div>
+<div id="footer_wrap">
+	<div id="footer">
+		<address>Copyright (c) <strong>Yong ku cho 2013</strong> all right reserved.</address>
+	</div>
+</div>
+</body>
+</html>

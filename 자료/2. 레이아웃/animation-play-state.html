@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+.box {
+  width: 200px;
+  height: 200px;
+  background: #f00;
+  animation: mymove 1s infinite;
+}
+@keyframes mymove {
+  0% {width: 200px;}
+  50% {width: 300px;}
+  100% {width: 200px;}
+}
+.box:hover {animation-play-state: paused;}
+  </style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

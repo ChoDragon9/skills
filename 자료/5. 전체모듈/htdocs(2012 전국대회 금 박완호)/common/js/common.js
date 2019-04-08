@@ -1,0 +1,96 @@
+/* ¸µÅ© */
+function link(url) {
+	window.location.href = url;
+}
+
+/* ¸Þ´º º¸±â */
+function depView(Idx,Num) {
+	for(var i = 1; i <= Num; i++) {
+		document.getElementById('dep2_'+i).style.display = 'none';
+	}
+	document.getElementById('dep2_'+Idx).style.display = 'inline';
+}
+
+/* ÆùÆ® »çÀÌÁî Á¶Àý */
+var size = 100;
+function zoom(n) {
+	var content = document.getElementById('cont_area');
+	size = n == 100 ? 100 : size + n;
+	content.style.fontSize = size + '%';
+}
+
+/* Á¤±Ô½Ä °Ë»ç */
+function regChk(obj) {
+	var reg = null;
+	var msg = 'true';
+	switch(obj.name) {
+		case 'id' :
+			reg = new RegExp(/^[a-zA-Z0-9]{4,16}$/);
+			if(reg.test(obj.value) === false) msg = '¾ÆÀÌµð´Â 4~16±ÛÀÚ »çÀÌÀÇ ¿µ¹®°ú ¼ýÀÚÀÇ Á¶ÇÕÀ¸·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.';
+		break;
+		case 'key' :
+			var member = document.getElementById('member_lv');
+			if(member.value) {
+				if(obj.value.length == 0) msg = '°Ë»ö¾î¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.';
+			}
+		break;
+		case 'pw' :
+			if(obj.value.length < 4) msg = 'ºñ¹Ð¹øÈ£´Â ÃÖ¼Ò 4ÀÚ ÀÌ»óÀÔ´Ï´Ù.';
+		break;
+		case 'name' :
+			reg = new RegExp(/^[°¡-ÆR]{1,}$/);
+			if(reg.test(obj.value) === false) msg = 'ÀÌ¸§Àº ¼øÇÑ±Û·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.';
+		break;
+		case 'email' :
+			reg = new RegExp(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,}$/);
+			if(reg.test(obj.value) === false) msg = 'ÀÌ¸ÞÀÏ ¾ç½Ä¿¡ ¸Â°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä.';
+		break;
+		default :
+			if(obj.value.length == 0) msg = obj.title + 'À»(¸¦) ÀÔ·ÂÇØÁÖ¼¼¿ä.';
+		break;
+	}
+	return msg;
+}
+
+/* Æû °ª °Ë»ç */
+function frmChk(frm) {
+	var arg = null;
+	var argLen = arguments.length - 1;
+	isOk = new Array();
+	for(var i = argLen; i >= 1; i--) {
+		arg = arguments[i];
+		isOk[arg] = regChk(frm[arg]);
+		if(isOk[arg] != 'true') {
+			frm[arg].focus();
+			frm[arg].style.backgroundColor = '#fee';
+		} else {
+			frm[arg].style.backgroundColor = '';
+		}
+	}
+	for(var i = 1; i <= argLen; i++) {
+		arg = arguments[i];
+		if(isOk[arg] != 'true') {
+			alert(isOk[arg]);
+			return false;
+		}
+	}
+}
+
+/* Æû Àü¼Û */
+function frmSubmit(frm,idx,config) {
+
+	var frm = document.forms[frm];
+
+	if(config) {
+
+		frm.idx.value = idx;
+		frm.submit();
+
+	} else if(confirm('Á¤¸»·Î ½ÇÇàÇÏ½Ã°Ú½À´Ï±î?')) {
+
+		frm.idx.value = idx;
+		frm.submit();
+
+	}
+
+}

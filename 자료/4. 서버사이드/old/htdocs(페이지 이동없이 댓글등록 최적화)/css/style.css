@@ -1,0 +1,78 @@
+/* Reset start
+------------------------------------------------------*/
+
+* { margin:0; padding:0; font-family:dotum; }
+ul { list-style:none; }
+img { vertical-align:top; border:0; }
+a { text-decoration:none; color:#333; }
+a:hover { text-decoration:underline; }
+body { font-family:dotum; }
+
+/* Reset end
+------------------------------------------------------*/
+
+/* Layout start
+------------------------------------------------------*/
+
+#wrapper { width:100%; float:left; }
+	#wrap { width:800px; margin:50px auto 0; font-size:12px; }
+	#comment { width:800px; float:left; }
+/* Layout end
+------------------------------------------------------*/
+
+/* Class start
+------------------------------------------------------*/
+
+.content { width:100%; float:left; }
+.content > ul { width:100%; float:left; }
+.content > ul > li { float:left; border-top:solid 1px #dbdbdb; padding-top:12px; padding-bottom:10px; min-height:15px; }
+.content > ul:first-child > li { border-top:solid 2px #aaa; }
+.content > ul.bt > li { width:100%; float:left; }
+
+.join { width:100%; float:left; }
+.join > ul { width:100%; float:left; }
+.join > ul > li { width:80%; float:left; border-top:solid 1px #dbdbdb; padding-top:12px; padding-bottom:10px; min-height:25px; }
+.join > ul > li:first-child { width:20%; background:#f0f0f0; }	
+.join > ul:first-child > li { border-top:solid 2px #aaa; }
+.join > ul.bt > li { width:100%; float:left; background:none; }
+.join > ul.con > li { height:160px; }
+
+input[type="button"],input[type="reset"],input[type="submit"] { width:70px; height:30px; border:none; background:url(/img/btbg.png) no-repeat; font-size:12px; color:#666; }
+input[type="text"],input[type="password"],textarea { border:solid 1px #ccc; padding-top:2px; padding-bottom:2px; font-size:13px; }
+select,option { font-size:13px; }
+
+textarea { width:600px; height:147px; }
+
+.fl { float:left; }
+
+.tc { text-align:center; }
+.tr { text-align:right; }
+
+.cr { color:#f00; }
+
+.lc { letter-spacing:-1px; }
+
+.w95 { width:95%; }
+.w90 { width:90%; }
+.w80 { width:80%; }
+.w75 { width:75%; }
+.w70 { width:70%; }
+.w65 { width:65%; }
+.w60 { width:60%; }
+.w50 { width:50%; }
+.w40 { width:40%; }
+.w30 { width:30%; }
+.w25 { width:25%; }
+.w20 { width:20%; }
+.w15 { width:15%; }
+.w10 { width:10%; }
+.w5 { width:5%; }
+
+.bg { background:#f0f0f0; }
+
+.dn { display:none; }
+.di { display:inline; }
+
+.h40 { height:40px; }
+/* Class end
+------------------------------------------------------*/

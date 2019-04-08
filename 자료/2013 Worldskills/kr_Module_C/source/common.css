@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face { font-family:pt; src:url(../font/ptsans.woff) }
+@font-face { font-family:pa; src:url(../font/pacifico.woff) }
+
+* { margin:0; padding:0;outline:none; border:0 none;list-style:none; 
+	-webkit-appearance:none;
+	-moz-appearance:none;
+}
+
+a { text-decoration:none; }
+h2,h3,h4 { color:#222222; }
+del { color:#b3b3b3; }
+blockquote { color:#6f6f6f; }
+body { font-size:1em; line-height:1em; font-family:pt; background-image:url('images/bg.jpg'); }
+
+#visual .title ,
+.preview,
+.review,
+.about,
+#article h4,
+.recom,
+#content li p
+{ font-family:pa; }
+
+.wrapper { width:100%; float:left; }
+.wrap { width:100%; max-width:980px; position:relative; margin:0 auto; }
+
+#top { background-color:#222; }
+#top p { float:left; color:#fff; line-height:30px; }
+#top p span { color:#747474; }
+#top a { float:right; line-height:30px; }
+
+#visual { background-color:#c33; box-shadow:inset 0 3px 3px rgba(0,0,0,.5), 0 2px 0px #fff; text-shadow:1px 2px 2px #701320; color:#fff; }
+#visual button { background-color:#b23434; box-shadow:inset 0 -3px 2px rgba(0,0,0,.3), 0 1px 1px rgba(255,255,255,.1); }
+#visual button:hover { background-color:#b23434; box-shadow:inset 0 3px 2px rgba(0,0,0,.3), 0 1px 1px rgba(255,255,255,.1); }
+
+
+#content li span { 
+	background-color:#fe0000;
+}
+ 
+.cir { background-color:#fe0000; }
+/* 
+
+menu 
+dc001e
+
+search
+a9a9a9
+
+li
+fe0000
+
+
+figure {
+	margin:100px;
+	border:1px solid #000;
+	-webkit-perspective:600;
+	width:300px;
+	height:300px;
+	float:left;
+}
+figure .front {
+	width:100%;
+	height:100%;
+	position:relative;
+	z-index:100;
+	top:0;
+	left:0;
+	background-color:#ddd;
+	-webkit-transform:rotateY(0deg);
+	-webkit-backface-visibility:hidden;
+	
+	-webkit-transition:all .5s;
+}
+figure.flip .front {
+	z-index:90;
+	-webkit-transform:rotateY(180deg);
+}
+figure .back {
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:90;
+	top:0;
+	left:0;
+	background-color:#ff0;
+	-webkit-transform:rotateY(-180deg);
+	-webkit-backface-visibility:hidden;
+	
+	-webkit-transition:all .5s;
+}
+figure.flip .back{
+	z-index:100;
+	-webkit-transform:rotateY(0deg);
+}
+
+*/

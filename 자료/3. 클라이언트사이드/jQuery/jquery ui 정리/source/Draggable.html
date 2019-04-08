@@ -1,0 +1,15 @@
+<script type="text/javascript">
+$("#drag").draggable({
+	start : function(){
+		id = $(this);
+		alert("#"+id.attr("id")+" Draggable Start");
+	},
+	drag : function(){
+		id.html("#"+id.attr("id")+" Draggable Moving");
+	},
+	stop : function(){
+		id.html("#"+id.attr("id")+" Draggable End");
+	}
+});
+</script>
+<div id="drag">Draggable</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  #drop_zone {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    width: 400px;
+    height: 400px;
+  }
+</style>
+</head>
+<body>
+  <div id="drop_zone"
+       ondrop="dropHandler(event);"
+       ondragover="stopBrowserAction(event);">
+    <p>Drag one or more files to this Drop Zone ...</p>
+  </div>
+  <div id="file-info"></div>
+  <script>
+    function stopBrowserAction(event) {
+      event.preventDefault();
+    }
+
+    function dropHandler(event) {
+      event.preventDefault();
+      var file = event.dataTransfer.files[0]
+      readfile(file);
+      showFile(file);
+    }
+    function readfile(file) {
+      var html = `
+        <div>
+          <strong>Name</strong>: ${file.name}<br>
+          <strong>File Type</strong>: ${file.type}
+        </div>
+      `;
+      document.getElementById('file-info').innerHTML = html
+    }
+
+    function showFile(file){
+      var reader = new FileReader();
+      var onFileLoad = function(event) {
+        var html = ''
+        var base64Url = event.target.result
+        if(file.type.indexOf('image') > -1) {
+          html = `<img src="${base64Url}">`
+        } else if(file.type.indexOf('video') > -1) {
+          html = `
+            <video controls>
+              <source type="${file.type}" src="${base64Url}">
+            </video>
+          `
+        }
+        document.getElementById('file-info').innerHTML += html
+      }
+
+      reader.onload = onFileLoad;
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>

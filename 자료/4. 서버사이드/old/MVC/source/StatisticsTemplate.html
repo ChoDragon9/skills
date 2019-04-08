@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WorldSkills Statistics</title>
+<style type="text/css">
+<!--
+/* Classes for feedback messages */
+.ok {
+	background-color: #e8ffd8;
+	border: 1px solid #006d00;
+	padding: 5px 10px;
+	width: 365px;
+}
+
+.error {
+	background-color: #ffd8d8;
+	border: 1px solid #e50000;
+	padding: 5px 10px;
+	width: 365px;
+}
+-->
+</style>
+</head>
+
+<body>
+<h1>WorldSkills Statistics</h1>
+<div id="MedalsByCountry">
+  <h2>Medals by country over the years</h2>
+  <form action="" method="post" name="medals" id="MedalsByCountryForm">
+    <select name="countrys" id="countrys">
+      <option value="" selected>Select a country</option>
+      <option value="AU">AU - Australia</option>
+      <option value="[insert other countrys here: Iso]">[insert other countrys here: Iso - Name]</option>
+    </select>
+	<button type="submit" name="showMedals" value="Show">Show</button>
+	<span class="message"></span>
+  </form>
+  <table id="MedalsByCountryTable" border="1" align="left" summary="Select the country with the dropdown above">
+    <caption style="visibility:hidden">
+    Medals by country over the years
+    </caption>
+    <thead>
+      <tr bgcolor="#CCCCCC">
+        <th>Trade</th>
+        <th>2007</th>
+        <th>2009</th>
+        <th>2011</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>13 - Autobody Repair</td>
+        <td>Gold</td>
+        <td></td>
+        <td>Silver</td>
+      </tr>
+      <tr bgcolor="#EEEEEE">
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br clear="all">
+
+<div id="PerformanceOverYears">
+  <h2>Performance by trade over the years</h2>
+  <form action="" method="post" name="performance">
+    <select name="trades">
+      <option value="" selected>Select a trade</option>
+      <option value="01">01 - Polymechanics/Automation</option>
+      <option value="[insert other trades here: Nr]">[insert other trades here: Nr - Name]</option>
+    </select>
+    <select name="countrys">
+      <option value="" selected>Select a country</option>
+      <option value="all">All countrys</option>
+      <option value="AU">AU - Australia</option>
+      <option value="[insert other countrys here: Iso]">[insert other countrys here: Iso - Name]</option>
+    </select>
+    <button type="submit" name="showPerformance" value="Show">Show</button>
+  </form>
+  <img src="TradeOverYears_360-600.jpg" alt="Diagram shows the performance of the countrys by trade over the years - Select the trade and country(s) with the dropdowns above" style="margin-top:10px">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+//Clean URL
+C:\APM_Setup\Server\Apache\conf\httpd.conf 에서
+
+주석을 풀어준다.
+#LoadModule rewrite_module modules/mod_rewrite.so -> LoadModule rewrite_module modules/mod_rewrite.so
+#AddModule mod_rewrite.c -> AddModule mod_rewrite.c
+AllowOverride None -> AllowOverride All 또는 FileInfo 로 변경해준다.
+
+1) 예제 1
+
+RewriteEngine On   //mod_rewite 엔진을 시작하도록 한다.
+RewriteBase /   //기본디렉토리를 지정한다. 이후 지정되는 모든 경로는 이 기본디렉토리를 기준으로 설정된다
+RewriteCond %{REQUEST_URI} /([^/^\.]+)/([^/^\.]+)/([^/^\.]+)/([^/^\.]+)/([^/^\.]+)$ //%{REQUEST_URI}는 도메인을 뺀 뒷부분을 의미한다
+RewriteRule (.*)/(.*)/(.*)/(.*)/(.*) /page/$1.php?main_id=$2&sub_id=$3&search=$4&page=$5
+
+2) 예제 2
+
+RewriteEngine On
+RewriteRule ^$ index.php [L]
+RewriteCond %{request_filename} !-f
+RewriteRule ^(.*)$ index.php?act=$1 [L]
+
+① RewriteRule ^$ index.php [L]
+정규표현식에 관한 설명에서 ^$는 시작하고 바로 끝나므로 빈 값일 경우, 즉 127.0.0.1/과 같이 더 이상 아무것도 입력된 값이 없을 때는 index.php에 매치되어 index.php가 실행되도록 하라 는 뜻이다.
+끝에 [L]은 앞에서 설명한 것처럼 이 조건에 맞으면 더 이상 다른 조건은 실행하지 말라는 뜻이다.
+
+② RewriteCond %{request_filename} !-f
+이것은 조금 생소할 것이지만 설명해보겠다. 이 것은 리라이트 규칙의 적용 조건을 정의한 것이다. 이것은 주소에 입력한 값이 실제 존재하는 파일이 아닐 경우 아래의 rule을 수행하라는 의미이다.
+%{request_filename}는 주소에 입력된 값이고, 이 값이 !-f, 즉 파일이 아니면 다음으로 진행하라는 뜻이다. 만일 실제로 index.php가 입력되었고 그 파일이 해당 위치에
+존재한다면 그 다음의 룰은 수행할 필요가 없다는 뜻이다. 여기에 보통 하나 더 추가 하자면 다음과 같이 할 수 있다.
+RewriteCond %{request_filename} !-f
+RewriteCond %{request_filename} !-d
+여기서 !-d는 디렉토리(폴더)가 아니면 다음을 수행하라는 의미이다.
+
+③ RewriteRule ^(.*)$ index.php?act=$1 [L]
+이것은 우리가 위에서 만들었던 예제와 같은 내용이다. act 파라미터를 get 값으로 전달하여 그 값을 아마도 / 기준으로 explode 해서 배열에 넣고 기타 작업을 수행했을 것이다.

@@ -1,0 +1,91 @@
+@charset "euc-kr";
+
+body { background:url(/img/bg_sub.png) repeat-x }
+
+/* Sub Visual */
+.sub_visual { float:left; height:150px; width:100%; margin-bottom:50px }
+
+/* Content */
+.sub_content { float:left; width:100% }
+
+/* Navigation */
+.lnb { float:left; width:190px; background:url(/img/bg_lnb2.png) no-repeat 100% 0; height:400px; padding-left:10px; text-indent:10px; margin-right:50px }
+.lnb h2 { font:bold 2em 'Malgun Gothic','¸¼Àº °íµñ'; color:#584232; letter-spacing:-0.1em; margin-bottom:15px; text-indent:15px }
+.lnb ul { float:left; width:100% }
+.lnb ul li { float:left; width:100%; margin-bottom:10px }
+.lnb ul li a { font:bold 1.2em 'Malgun Gothic','¸¼Àº °íµñ'; color:#666; display:block; padding:5px; height:20px }
+.lnb ul li a:hover { background:url(/img/bg_lnb.png) no-repeat; color:#fff; text-decoration:none }
+.lnb ul li a.over { background:url(/img/bg_lnb.png) no-repeat; color:#fff; text-decoration:none }
+
+.sub_cont { float:left; width:600px }
+
+/* Page Title */
+.page_title { float:left; width:100%; height:40px; position:relative; background:url(/img/bg_title.png) repeat-x 0 100%; margin-bottom:15px }
+.page_title h3 { font:bold 2em 'Malgun Gothic','¸¼Àº °íµñ'; color:#584232 }
+.page_title .location { position:absolute; top:-10px; right:0 }
+.page_title .font { position:absolute; top:10px; right:0 }
+
+/* Content */
+#cont_area { float:left; width:100%; text-align:justify }
+	.html { display:inline-block; width:100%; position:relative }
+	.html p { line-height:200%; margin-bottom:15px}
+	.html p.photo_1 { width:400px; }
+	.html p.photo_2 { position:absolute; top:10px; right:0px }
+
+	/* Join */
+	.caption { float:left; font:bold 1.1em 'Malgun Gothic','¸¼Àº °íµñ'; color:#333; margin-bottom:5px; width:100% }
+	.table { float:left; width:100%; border-top:2px solid #aaa; overflow:hidden; background:url(/img/bg_table.png) repeat-y }
+	.table > div { float:left; width:100%; padding:5px; border-bottom:1px solid #dfdfdf; line-height:25px }
+	.table > div > div { float:left; width:70%; min-height:25px }
+	.table > div > div:first-child { width:105px; background:#f8f8f8; border-right:1px solid #dfdfdf; font:bold 0.94em 'Malgun Gothic','¸¼Àº °íµñ'; color:#333; line-height:25px; padding-left:15px; margin-right:5px }
+	.table > div > div input[type='text'], .input { border:1px solid #ccc; padding:5px }
+	.table > div > div label { float:left; background:url(/img/bg_label.png) no-repeat 0 9px; padding-left:10px; margin-left:-10px }
+	.table > div > div label.none { background:none }
+	.table.none > div > div label { background:none }
+	.imgs { max-width:100%; max-height:100% }
+	.bottom_btn { float:left; width:100% }
+	.btn { width:65px; height:25px; background:url(/img/bg_btn.png) no-repeat; border:0 none; font:bold 0.94em 'Malgun Gothic','¸¼Àº °íµñ'; color:#666 }
+	.big { width:100px; height:25px; background:url(/img/bg_big.png) no-repeat; border:0 none; font:bold 0.94em 'Malgun Gothic','¸¼Àº °íµñ'; color:#666 }
+
+	/* Board */
+	.table_list { float:left; border-top:2px solid #aaa; width:100%; overflow:hidden; text-align:center }
+	.table_list th, .table_list td { border-bottom:1px solid #dfdfdf; height:30px }
+	.table_list td.subject { text-align:left }
+	.table_list th { background:#f8f8f8 }
+	.paginate { float:left; width:100%; text-align:center; margin-bottom:30px }
+	.paginate * { margin:0 3px }
+	.bfrm { float:right; width:100% }
+	.bfrm { text-align:right }
+	.search_txt { background:#bb0909; color:#fff; font-weight:bold }
+	.table_cont { float:left; border-top:2px solid #aaa; width:100%; min-height:250px; border-bottom:1px solid #aaa; padding:15px 0 }
+
+	/* Login */
+	.login { overflow:hidden; background:#f8f8f8; border:1px solid #dfdfdf; padding:30px 0 }
+	.login_inner { width:350px; margin:0 auto }
+	.login_inner .input_area { float:left; width:250px;  }
+	.login_inner .input_area div { float:left; width:100%; margin:5px 0 }
+	.login_inner .input_area div input { border:1px solid #ccc; padding:5px }
+	.login_inner .input_area div label { float:left; font-weight:bold; width:80px; margin-top:7px }
+	.login_inner input[type='image'] { margin-top:5px }
+
+	/* Furniture Gallery */
+	.gallery { float:left; width:100%; overflow:hidden }
+	.gallery ul { float:left; width:200px; height:250px; margin-bottom:30px; overflow:hidden }
+	.gallery ul li img { width:180px; height:120px; padding:2px; border:1px solid #dfdfdf }
+	.gallery ul li { float:left; width:100%; margin-bottom:10px }
+
+	/* Search */
+	.search { overflow:hidden; background:#f8f8f8; border:1px solid #dfdfdf; padding:30px 0 }
+	.search_inner { width:500px; margin:0 auto }
+	.search_inner div { float:left; width:100%; margin:7px 0 }
+	.search_inner div select { margin-top:3px}
+	.search_inner div label { float:left; font-weight:bold; width:80px; margin-top:6px }
+	.search_inner div input[type='text'] { width:320px; padding:5px; border:1px solid #dfdfdf}
+
+	/* Sitemap */
+	.sitemap { overflow:hidden; width:100%; text-align:center }
+	.sitemap > ul { float:left; width:100% }
+	.sitemap > ul > li { float:left; width:200px; height:250px }
+	.sitemap > ul > li > a { font:bold 1.5em 'Malgun Gothic','¸¼Àº °íµñ'; color:#584232; width:100%; display:block; padding-bottom:5px; border-bottom:1px solid #dfdfdf }
+	.sitemap > ul > li > ul { float:left; margin-top:10px; font:bold 1.1em 'Malgun Gothic','¸¼Àº °íµñ'; color:#666; width:100% }
+	.sitemap > ul > li > ul li { margin-bottom:10px; width:100% }

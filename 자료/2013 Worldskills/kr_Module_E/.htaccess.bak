@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteBase /kr_Module_E
+RewriteCond $1 !^(index\.php|src|websiteLVB)
+RewriteRule ^(.*)$ ./index.php/$1 [L]

@@ -1,0 +1,27 @@
+<style type="text/css">
+#drag { width:100px; height:100px; background-color:#000; }
+#drop { width:500px; height:500px; border:2px solid #dbdbdb; }
+</style>
+<script type="text/javascript">
+$("#drag").draggable({
+	start : function(){
+		id = $(this).attr("id");
+	}
+});
+$("#drop").droppable({
+	accept:function (ui){
+		return true; //꼭 써줘야 activate와 deactivate가 실행이 됨
+	},
+	activate: function (evt,ui){
+		$(this).html("Drop Start");
+	},
+	drop: function (evt,ui){
+		alert("This Box Id is #"+id);
+	},
+	deactivate:function (evt,ui){
+		$(this).html("Drop End");
+	}
+});
+</script>
+<div id="drag">Drag Box</div>
+<div id="drop"></div>

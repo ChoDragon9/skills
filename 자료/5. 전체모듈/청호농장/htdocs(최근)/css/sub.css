@@ -1,0 +1,76 @@
+/* Sub content start
+------------------------------------------------*/
+
+#scon { width:900px; float:left; background:url(/img/subbg.png) repeat-y; }
+	#submenu { width:230px; min-height:200px; float:left; margin-top:20px;  font-size:11px; font-weight:bold; }
+		#submenu > div.img { width:176px; height:50px; float:left; background:url(/img/subtitlebg.png) no-repeat 55px 16px; padding-top:20px; padding-left:54px; }
+		#submenu > div.submenu { width:173px; height:21px; float:left; margin-bottom:10px; background:url(/img/subcom.png) no-repeat; color:#6e9100; padding:9px 0 0 27px; cursor:pointer; }
+		#submenu > div.now{ width:173px; height:21px; float:left; margin-bottom:10px; background:url(/img/subnow.png) no-repeat; color:#fff; padding:9px 0 0 27px; cursor:pointer; }
+
+	#sub_right { width:650px; min-height:200px; margin-top:20px; float:left; margin-left:20px; }
+		#sani { width:650px; height:225px; float:left; position:relative; }
+			#sani > img { position:absolute; top:0; left:0; }
+		#sub_title { width:650px; height:40px; margin-top:25px; float:left; background:url(/img/subtitle.png) no-repeat; }
+			#sub_title > li { width:312px; height:25px; float:left; text-align:right; font-size:11px; color:#666666; padding-top:15px; padding-right:13px; }
+			#sub_title > li:first-child { width:312px; height:27px; float:left; text-align:left; padding-top:13px; padding-left:13px; font-size:14px; font-weight:bold; color:#333; padding-right:0; }
+		#con_area { width:650px; float:left; padding:20px 0; font-size:0.7em; }
+
+/* Sub content end
+------------------------------------------------*/
+
+/* Etc start
+------------------------------------------------*/
+
+#joinimg { width:650px; height:60px; float:left; margin-bottom:20px; }
+
+#login { width:500px; height:200px; margin:40px auto 20px; background:url(/img/loginbg.png) no-repeat; }
+	#logintxt { width:168px; height:119px; float:left; padding:81px 0 0 32px; }
+	#loginfrm { width:250px; height:170px; float:left; padding-top:30px; }
+		#loginfrm > div.title { width:250px; height:25px; float:left; background:url(/img/logintitleline.png) no-repeat center bottom; }
+		#loginfrm > form > ul.login_label { width:40px; height:50px; float:left; letter-spacing:-1px; text-align:right; margin-top:10px; line-height:26px; padding-right:10px; }
+		#loginfrm > form > ul.login_input { width:127px; height:50px; float:left; margin-top:10px; }
+			#loginfrm > form > ul.login_input > li > input { width:120px; float:left; }
+			#loginfrm > form > ul.login_input > li > input[type="text"] { margin-bottom:2px; }
+		#loginfrm > form > div.login_bt { width:73px; height:50px; float:left; margin-top:10px; }
+			#loginfrm > form > div.login_bt > input { width:73px; height:50px; background:url(/img/login_submit.png) no-repeat; }
+		#loginfrm > ul.login_join { width:250px; height:45px; float:left; letter-spacing:-1px; background:url(/img/login_joinline.png) no-repeat; margin-top:9px; padding-top:15px; color:#666; }
+			#loginfrm > ul.login_join > li:first-child { width:250px; height:15px; float:left; text-align:left; }
+			#loginfrm > ul.login_join > li { width:250px; height:30px; float:left; text-align:right; }
+
+#product { width:650px; float:left; background:url(/img/productbg.png) repeat-y; }
+	#product > ul { width:162px; height:204px; float:left; padding-top:20px; }
+	#product > ul > li:first-child { width:162px; height:120px; padding-top:0; }
+	#product > ul > li { width:162px; height:12px; float:left; text-align:center; padding-top:10px; }
+	#product > ul > li > a > img { width:160px; height:120px; }
+
+#product2 { width:650px; height:380px; float:left; }
+	#pro_left { width:400px; height:380px; float:left; }
+		#pro_top_img { width:394px; height:294px; float:left; border:solid 3px #e8e8e8; text-align:center; }
+		#pro_bottom_img { width:400px; height:75px; float:left; margin-top:5px; }
+			#pro_bottom_img > li { width:128px; height:73px; float:left; border:solid 1px #dbdbdb; margin-left:5px; }
+			#pro_bottom_img > li > img { width:126px; height:71px; margin-top:1px; margin-left:1px; cursor:pointer; }
+			#pro_bottom_img > li:first-child { margin-left:0; }
+	#pro_right { width:230px; height:380px; float:left; margin-left:20px; }
+		#pro_right > div.title { width:230px; height:50px; float:left; padding-top:20px; font-size:16px; font-weight:bold; color:#333; background:url(/img/pro_img_title.png) no-repeat; }
+		#pro_right > ul.title { width:150px; height:190px; float:left; background:url(/img/pro_titlebg.png) no-repeat; padding-left:80px; }
+			#pro_right > ul.title > li { width:150px; height:12px; float:left; margin-top:28px; font-size:12px; }
+			#pro_right > ul.title > li:first-child { margin-top:0; }
+			#pro_right > ul.title > li > input { width:20px; height:15px; float:left; margin-top:-2px; text-align:right; }
+		#pro_bn { width:230px; height:40px; float:left; }
+		#pro_right_bottom { width:230px; height:75px; float:left; margin-top:5px; }
+			#pro_right_bottom > li { width:112px; height:75px; float:left; }
+			#pro_right_bottom > li > input[type="submit"] { background:url(/img/pro_submit.png) no-repeat; width:112px; height:75px; }
+			#pro_right_bottom > li > input[type="button"] { background:url(/img/pro_button.png) no-repeat; width:112px; height:75px; }
+			#pro_right_bottom > li:first-child { margin-right:6px; }
+
+#product_intro { width:650px; min-height:200px; float:left; padding-top:20px; }
+
+#search { width:570px; height:121px; float:left; background:#f0f0f0; border:solid 1px #dbdbdb; padding-left:78px; padding-top:42px; margin-bottom:30px; }
+	#search > div.title { width:570px; height:44px; float:left; }
+	#search > div.input { width:418px; height:35px; float:left; }
+		#search > div.input > input[type="text"] { width:394px; height:19px; float:left; border:solid 8px #857c5f; }
+	#search > div.submit { width:72px; height:35px; float:left; }
+		#search > div.submit > input[type="submit"] { width:72px; height:35px; float:left; background:url(/img/search_bt.png) no-repeat; color:#fff; font-size:12px; }
+
+/* Etc end
+------------------------------------------------*/

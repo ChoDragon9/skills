@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf8"></head>
+<body>
+<input type="text" id="input-txt">
+<input type="button" id="save" value="Save">
+<input type="button" id="remove" value="Remove">
+<div id="txt"></div>
+<script>
+  /* jQuery */
+  function $ (selector) {
+    return document.querySelector(selector)
+  }
+  /* ----------- */
+  window.onload = function () {
+    showList()
+    $('#save').onclick = saveText
+    $('#remove').onclick = removeText
+  }
+
+  function saveText () {
+    var inputTxt = $('#input-txt')
+    var list = getStorage()
+    list.push(inputTxt.value)
+    setStorage(list)
+    inputTxt.value = ''
+    showList()
+  }
+
+  function removeText () {
+    removeStorage()
+    showList()
+  }
+
+  var IMAGE = 'IMAGE'
+  function getStorage () {
+    var data = localStorage.getItem(IMAGE)
+    if (data) {
+      return JSON.parse(data)
+    } else {
+      return []
+    }
+  }
+  function setStorage (value) {
+    return localStorage.setItem(IMAGE, JSON.stringify(value))
+  }
+  function removeStorage () {
+    localStorage.removeItem(IMAGE)
+  }
+
+  function showList () {
+    var list = getStorage()
+    var html = list.map(function (val) {
+      return '<li>' + val + '</li>'
+    })
+    $('#txt').innerHTML = html.join('')
+  }
+</script>
+</body>
+</html>

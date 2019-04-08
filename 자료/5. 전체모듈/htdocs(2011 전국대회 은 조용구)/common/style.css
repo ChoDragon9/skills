@@ -1,0 +1,135 @@
+body,li,ul,form,img { margin:0px; padding:0px; border:0px; }
+ul,li { list-style:none; }
+a { text-decoration:none; color:#666;	 }
+a:hover { text-decoration:underline; }
+textarea { border:solid 1px #ccc; }
+.input { border:solid 1px #ccc; }
+.button { border:solid 1px #ccc; font-size:11px; color:#666; background:#fff; padding-top:3px; }
+
+.bt2c { border-top:solid 2px #ccc; padding:5px 0; }
+.bt1c { border-top:solid 1px #ccc; padding:5px 0; }
+.bb1c { border-bottom:solid 1px #ccc; padding:5px 0; }
+.bb2c { border-bottom:solid 2px #ccc; padding:5px 0; }
+
+.mt5 { margin-top:5px; }
+*:first-child+html .mt5 { margin-top:5px; }
+
+.ft14 { font-size:14px; }
+.ft13 { font-size:13px; }
+.ft12 { font-size:12px; }
+.ft11 { font-size:11px; }
+
+.fw { font-weight:bold; }
+.fm { font-family:'¸¼Àº °íµñ'; }
+
+.cc { color:#ccc; }
+.c9 { color:#999; }
+.c6 { color:#666; }
+.cr { color:#f00; }
+.cb { color:#00f; }
+.cg { color:#360; }
+.cg a { color:#360; }
+
+.hlt { background:#ff0; }
+
+.w100 { width:100%; }
+.w90 { width:90%; }
+.w80 { width:80%; }
+.w70 { width:70%; }
+.w60 { width:60%; }
+.w50 { width:50%; }
+.w40 { width:40%; }
+.w30 { width:30%; }
+.w25 { width:25%; }
+.w20 { width:20%; }
+.w10 { width:10%; }
+.w9 { width:9%; }
+
+.fl { float:left; }
+
+.ac { text-align:center; }
+.ar { text-align:right; }
+
+.dn { display:none; }
+.di { display:inline; }
+
+.pa { position:absolute; }
+
+.hiinput { width:244px; height:24px; border:0px; margin-top:1px; }
+*:first-child+html .hiinput { width:242px; height:24px; border:0px; margin-top:0px; }
+.hisubmit { width:56px; height:24px; border:0px; background:#936; color:#fff; font-size:11px; }
+*:first-child+html .hisubmit { width:54px; height:24px; border:0px; background:#936; color:#fff; font-size:11px; padding-top:1px; }
+
+#wrapper { width:100%; float:left; background:url("../img/bg.png") repeat-x; }
+	#wrap { width:1000px; float:left; }
+	/*header_start*/
+		#top { position:relative; z-index:3; width:1000px; height:110px; float:left; }
+			#logo { width:170px; height:75px; float:left; padding:35px 0 0 30px; }
+			/*navigation_start*/
+			#navi { width:776px; height:15px; float:left; padding:20px 24px 0 0; line-height:12px; }
+			#navi a { color:#666; }
+			#navi ul { float:right; }
+			#navi li { float:left; }
+			/*navigation_end*/
+
+			#menu { width:760px; height:65px; float:left; background:url("../img/menu.png") no-repeat; padding:10px 0 0 40px; }
+				#menu .main a { color:#fff; }
+				#menu ul { float:left; line-height:15px; margin-right:30px; }
+				#menu .sub a { color:#666; }
+				#menu .sub { margin-top:6px; }
+				#menu .sub a:hover { color:#360; }
+				#submenuleft { width:9px; height:24px; background:url("../img/submenuleft.png") no-repeat; float:left; }
+				#submenucenter { height:20px; background:url("../img/submenucenter.png") repeat-x; float:left; padding-top:4px; }
+				#submenuright { width:9px; height:24px; background:url("../img/submenuright.png") no-repeat; float:left; }
+	/*header_end*/
+	
+	#mcon { position:relative; z-index:2; width:1000px; height:580px; float:left; }
+		#mconleft { width:200px; height:110px; float:left; padding:470px 0 0 50px; }
+		#mconcenter { width:241px; height:130px; float:left; padding:450px 0 0 200px; }
+		/*Main content_start*/
+		#mconright { width:309px; height:580px; float:left; line-height:20px; }
+			#mcontop { width:309px; height:150px; float:left; }
+				#mcontop .put { width:308px; height:28px; float:left; background:#936; padding-left:1px; margin-bottom:10px; }
+			#mconmiddle { width:309px; height:150px; float:left; }
+			#mconbottom { width:309px; height:280px; float:left; }
+				#mconbottom .ar img { width:75px; height:56px; }
+				#mconbottom .f { width:104px; height:56px; float:left; margin-top:10px; }
+				#mconbottom .s { width:200px; height:56px; float:left; margin-top:10px; padding-left:5px; }
+		/*Main content_end*/
+	#scon { position:relative; z-index:2; width:1000px; float:left; }
+		#sconleft { width:290px; height:500px; float:left; background:url("../img/submenu.png") no-repeat; }
+			#lefttop { width:267px; height:92px; float:left; padding:158px 0 0 23px; }
+				#lefttop ul { width:117px; float:left; }
+			#leftcenter { width:265px; height:129px; float:left; padding-left:25px; }
+				#leftcenter ul { width:120px; float:left; }
+				#leftcenter li { width:120px; border-bottom:solid 1px #ccc; padding:5px 0; }
+		#sconright { width:710px; float:left; }
+			#sconrighttop { width:245px; height:80px; float:left; padding:136px 0 0 514px; }
+			#sconrightmiddle { width:710px; height:20px; float:left; }
+			#sconrightbt { width:710px; height:30px; float:left; border-top:solid 1px #ccc; padding-top:5px; }
+			#con_area { width:710px; font-size:0.7em; color:#666; float:left; line-height:150%; }
+			#sconrightbottom { width:710px; height:30px; float:left; border-top:solid 1px #ccc; padding-top:5px; margin-top:10px;}
+
+	.gal { width:150px; height:150px; margin:13px; float:left; }
+	.gal img { width:150px; height:100px; }
+
+	#mfla { position:absolute; top:110px; left:0px; z-index:1; width:680px; height:530px; float:left; }
+	#sfla { position:absolute; top:0px; left:0px; z-index:1; width:1000px; height:305px; float:left; }
+
+	#login { width:710px; height:100px; float:left; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; padding-top:30px; }
+		#login ul { margin-bottom:10px; }
+	#logout { width:710px; height:100px; float:left; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; padding-top:30px; }
+		#logout ul { margin-bottom:10px; }
+
+	#search { width:710px; height:75px; padding-top:45px; float:left; border-top:solid 1px #ccc; border-bottom:solid 1px #ccc; }
+
+	#sitemap ul { width:150px; height:180px; float:left; margin:13px; }
+
+	.cal { width:710px; height:100px; float:left; border-top:solid 1px #ccc; padding:15px 0;}
+	.cal li { width:101px; height:100px; float:left; }
+
+	#footer { width:1000px; height:70px; float:left; }
+		#footer .number { width:1000px; height:19px; background:url("../img/footer.png") no-repeat; line-height:20px; float:left; padding-top:2px; }
+		#footer .copy { width:1000px; height:49px; float:left; line-height:20px; }
+			#footer .copy .f { width:112px; height:31px; float:left; padding:18px 0 0 268px; }
+			#footer .copy .s { width:620px; height:31px; float:left; padding-top:18px; }

@@ -1,0 +1,55 @@
+/* Reset */
+* { margin:0; padding:0; font-family:arial; }
+body, html { width:100%; height:100%; }
+ul, li { list-style:none; }
+img, fieldset { border:0 none; }
+hr, legend { display:none; }
+a { color:#333; }
+h1,h2,h3,h4,h5,h6 { font-weight:normal; }
+address { font-style:normal; }
+input[type="submit"],input[type="reset"],input[type="button"] { cursor:pointer; }
+
+/* Layout */
+#wrapper { width:100%; float:left; background-color:#f0f0f0; }
+	#header_wrap { width:100%; height:55px; float:left; background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0.01,rgb(11,35,89)),color-stop(0.75, rgb(22,59,119))); box-shadow:0 3px 3px #999; z-index:30; position:relative; }
+		#header { width:1000px; height:55px; margin:0 auto; position:relative; }
+	#container_wrap { width:100%; float:left; position:relative; z-index:10; }
+		#container { width:900px; height:600px; margin:0 auto; box-shadow:0 0 7px #999; background:#fff; padding:50px; }
+	#footer_wrap { width:100%; height:40px; float:left; background-color:#7b0412; }
+		#footer { width:1000px; height:27px; margin:0 auto; color:#fff; font-size:11px; text-align:center; padding-top:13px; }
+
+/* Header */
+#header h1 { color:#fff; font-family:aparajita; font-size:46px; text-shadow:0 0 10px #fff; position:absolute; left:0; top:5px; }
+#login { position:absolute; left:596px; top:14px; }
+#login li { float:left; margin-right:5px; }
+#login li:first-child { margin-right:4px; }
+#login input[type="text"], #login input[type="password"] { width:148px; height:25px; border:none; border-radius:5px; padding-left:12px; }
+#login input[type="submit"] { width:70px; height:27px; font-size:12px; box-shadow:0 0 1px #001f57; border:1px solid #114177; color:#fff; border-radius:5px; background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0.01,rgb(0,50,108)),color-stop(0.75, rgb(0,22,70))); float:left; }
+
+/* Box */
+.box { width:200px; padding-bottom:5px; float:left; border:1px solid #ccc; border-radius:10px; box-shadow:0 0 5px #ccc; }
+	.box p {
+		width:100%; 
+		height:30px; 
+		padding-top:12px; 
+		text-align:center; 
+		border-bottom:1px solid #ccc; 
+		background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0.01,rgb(255,255,255)),color-stop(1, rgb(230,230,230))); 
+		border-radius:10px 10px 0 0; 
+		font-size:13px;
+		font-weight:bold;
+	}
+	.small_box { 
+		width:188px; 
+		height:40px; 
+		margin:5px 5px 0; 
+		border:1px solid #dbdbdb; 
+		float:left; 
+		border-radius:5px; 
+		background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0.01,rgb(250,250,250)),color-stop(1, rgb(240,240,240))); 
+	}
+
+/* Form */
+#frm { width:600px; height:300px; float:left; background:#f0f0f0; margin-left:50px; border:1px solid #dbdbdb; }
+	#frm h2 { font-size:12px; }
+	#frm output { font-size:12px; text-decoration:underline; }

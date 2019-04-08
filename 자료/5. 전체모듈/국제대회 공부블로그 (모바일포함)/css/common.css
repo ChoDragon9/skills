@@ -1,0 +1,64 @@
+/* Reset Start
+------------------------------------------------------------*/
+
+* { margin:0; padding:0; }
+img { vertical-align:top; border:none; }
+ul { list-style:none; }
+a { text-decoration:none; color:#333; }
+a:hover { text-decoration:underline; }
+
+/* Reset End
+------------------------------------------------------------*/
+
+/* Class Start
+Text-Color : 648bdb
+Border-Color : bec8d9
+Background-Color : dbe1ea
+------------------------------------------------------------*/
+
+.c9 { color:#999; }
+
+.tr { text-align:right; }
+
+.w100 { width:100%; }
+
+.h20 { height:20px; }
+.h30 { height:30px; }
+
+.hlt { background:#ff0; }
+
+.fw { font-weight:bold; }
+
+.fl { float:left; }
+
+input[type="button"],input[type="reset"],input[type="submit"] { cursor:pointer; border:none; }
+
+/* 공통 버튼 스타일 */
+input[type="button"].common, input[type="submit"].common { background:#648bdb; font-size:11px; font-family:dotum; padding:5px; color:#fff; font-weight:bold; }
+input[type="reset"].common { background:#dbdbdb; font-size:11px; font-family:dotum; padding:5px; color:#333; font-weight:bold; }
+/* 공통 버튼 스타일 */
+
+input[type="text"],input[type="file"],input[type="password"] { height:24px; border:solid 1px #bec8d9; padding-left:6px; padding-right:6px; color:#648bdb; }
+select { border:solid 1px #bec8d9; padding:4px; }
+option { padding-right:5px; }
+textarea { border:solid 1px #bec8d9; color:#648bdb; font-size:12px; font-family:dotum; }
+
+.content { width:100%; float:left; }
+.content > ul { width:100%; float:left; }
+.content > ul:first-child > li { border-top:solid 2px #bec8d9;}
+.content > ul > li { width:600px; height:30px; float:left; border-top:solid 1px #bec8d9; padding-left:10px; padding-top:10px; }
+.content > ul > li:first-child { width:140px; background:#dbe1ea; text-align:center; font-family:'맑은 고딕'; font-weight:bold; color:#333; padding-left:0; padding-top:15px; }
+.content > ul.con > li { min-height:200px; }
+.content > ul.con > li > textarea { width:580px; height:185px; padding:5px; padding-bottom:0; }
+.content > ul.bt > li { width:100%; background:none; height:20px; padding-top:10px; }
+
+.cateadmin { width:100%; float:left; }
+.cateadmin > ul { width:100%; float:left; }
+.cateadmin > ul:first-child > li { border-top:solid 2px #bec8d9; background:#dbe1ea; font-weight:bold; color:#648bdb; }
+.cateadmin > ul > li { width:187px; height:28px; float:left; border-top:solid 1px #bec8d9; padding-top:15px; text-align:center; font-size:12px; color:#333; }
+.cateadmin > ul.bt > li { width:100%; }
+.cateadmin > ul:first-child > li > input[type="button"] { margin-top:-10px; background:#648bdb; }
+.cateadmin > ul > li > input[type="button"] { margin-top:-10px; background:#666; }
+
+/* Class End
+------------------------------------------------------------*/

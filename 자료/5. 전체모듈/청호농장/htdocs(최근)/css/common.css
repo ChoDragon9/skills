@@ -1,0 +1,124 @@
+/* Common start
+------------------------------------------------*/
+
+* { margin:0; padding:0; font-family:dotum; }
+img { vertical-align:top; border:none; }
+ul { list-style:none; }
+a { text-decoration:none; color:#666; }
+a:hover { text-decoration:underline; }
+
+input[type="reset"].bt1,input[type="submit"].bt1,input[type="button"].bt1 { border:none; background:url(/img/btbg.png) no-repeat; width:70px; height:30px; font-size:11px; letter-spacing:-1px; padding-top:1px; cursor:pointer; }
+input[type="reset"].bt2,input[type="submit"].bt2,input[type="button"].bt2 { border:none; background:url(/img/btbg2.png) no-repeat; width:70px; height:30px; font-size:11px; letter-spacing:-1px; color:#fff; padding-top:1px; cursor:pointer; }
+input[type="text"],input[type="password"]{ border:solid 1px #dbdbdb; border-top:solid 1px #aaa; border-left:solid 1px #aaa; height:22px; }
+textarea { border:solid 1px #aaa;  width:490px; height:175px;}
+input[type="file"] { border:solid 1px #dbdbdb; height:22px; }
+
+/* Common end
+------------------------------------------------*/
+
+/* Class start
+------------------------------------------------*/
+
+.hlt { background:#fffabc; }
+
+.cr { color:#f00; }
+.cg { color:#7c9e12; }
+.co { color:#f90; }
+.c6 { color:#666; }
+.c9 { color:#999; }
+
+.fl { float:left; }
+
+.cp { cursor:pointer; }
+
+.dn { display:none; }
+
+.tr { text-align:right; }
+.tl { text-align:left; }
+.tc { text-align:center; }
+.tu { text-decoration:underline; }
+
+.lc { letter-spacing:-1px; }
+
+.fw { font-weight:bold; }
+
+.content3 { width:100%; float:left; }
+.content3 > ul { width:100%; float:left; }
+.content3 > ul > li { min-height:20px; float:left; border-top:solid 1px #dbdbdb; padding:10px 0; }
+.content3 > ul:first-child > li { border-top:solid 2px #aaa; }
+.content3 > ul.bt > li { width:100%; }
+
+.content2 { width:100%; float:left; }
+.content2 > ul { width:100%; float:left; }
+.content2 > ul > li { min-height:30px; float:left; border-top:solid 1px #dbdbdb; padding:10px 0; }
+.content2 > ul:first-child > li { border-top:solid 2px #aaa; }
+.content2 > ul.bt > li { width:100%; }
+
+.content { width:100%; float:left; }
+.content > ul { width:100%; float:left; }
+.content > ul > li { min-height:26px; float:left; border-top:solid 1px #dbdbdb; padding:10px 0; }
+.content > ul:first-child > li { border-top:solid 2px #aaa; }
+.content > ul.bt > li { width:100%; }
+.content > ul > li > label { font-family:'¸¼Àº °íµñ'; font-weight:bold; font-size:11px; margin-top:-2px; position:absolute; color:#333; }
+
+.content > ul.con > li { min-height:180px; }
+.content > ul.board > li { padding:14px 0; min-height:14px; }
+
+.w100 { width:100%; }]
+.w90 { width:90%; }
+.w80 { width:80%; }
+.w70 { width:70%; }
+.w60 { width:60%; }
+.w50 { width:50%; }
+.w40 { width:40%; }
+.w30 { width:30%; }
+.w25 { width:25%; }
+.w20 { width:20%; }
+.w15 { width:97px; }
+.w10 { width:10%; }
+.w5 { width:32px; }
+
+.h20 { height:20px; }
+.h30 { height:30px; }
+.h35 { height:35px; }
+.h90 { height:90px; }
+
+.ft18 { font-size:18px; }
+.ft14 { font-size:14px; }
+.ft13 { font-size:13px; }
+.ft12 { font-size:12px; }
+
+.bg { background:#e4e4e4; }
+.bg2 { background:#f0f0f0; }
+
+.mg { font-family:'¸¼Àº °íµñ'; }
+
+.bt1c { border-top:solid 1px #ccc; padding-top:10px; }
+
+/* Class end
+------------------------------------------------*/
+
+/* Layout start
+------------------------------------------------*/
+
+#wrapper { width:100%; float:left; background:url(/img/menubg.png) repeat-x; }
+	#wrap { width:900px; margin:0 auto; }
+		#header { width:900px; height:120px; float:left; }
+			#navi { width:900px; height:25px; float:left; }
+				#navi > li { float:right; margin-left:10px; font-size:11px; margin-top:7px; color:#fff; }
+				#navi > li > a { color:#fff; }
+			#logo { width:200px; height:78px; float:left; padding-top:17px; }
+			#menu { width:700px; height:95px; float:left; }
+				#menu > ul { margin-top:28px; }
+				#menu > ul > li:first-child { margin-left:0; }
+				#menu > ul > li { float:left; margin-left:29px; }
+				#menu > ul > li > ul { position:absolute; display:none; }
+				#menu > ul > li > ul { position:absolute; margin-top:31px; display:none; }
+				#menu > ul > li > ul > li { font-size:12px; float:left; font-weight:bold; margin-right:15px; }
+				#menu > ul > li > ul > li > a { color:#fff; }
+#footer_out { width:100%; height:70px; float:left; background:#e4e4e4; text-align:right; }
+	#footer { width:900px; height:50px; margin:0 auto; font-size:11px; text-transform:uppercase; padding-top:20px; color:#333333; }
+		#footer > li { line-height:18px; }
+
+/* Layout end
+------------------------------------------------*/

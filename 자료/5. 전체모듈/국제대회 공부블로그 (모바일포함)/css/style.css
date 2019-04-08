@@ -1,0 +1,99 @@
+/* Common Layout Start
+------------------------------------------------------------*/
+
+#wrapper { width:100%; float:left; font-size:0.7em; font-family:dotum; }
+	#wrap { width:1000px; margin:0 auto; }
+		#header { width:1000px; height:48px; float:left; margin-top:32px; }
+			#logo { width:230px; height:48px; float:left; }
+			#main_sch { width:770px; height:48px; float:left; }
+				#main_sch li { float:right; margin-left:7px; }
+				#main_sch li.submit { width:50px; height:48px; }
+					#main_sch li input[type="submit"] { width:50px; height:34px; background:url(/img/sch_bt.png) no-repeat; border:none; }
+				#main_sch li.input { width:300px; height:48px; background:url(/img/sch_input.png) no-repeat; }
+					#main_sch li input[type="text"] { width:276px; height:18px; margin-top:6px; margin-left:10px; border:none; padding:0; }
+
+		#footer { width:1000px; height:15px; float:left; padding-top:50px; text-align:center; color:#999; }
+
+/* Common Layout End
+------------------------------------------------------------*/
+
+/* Content Start
+Text-Color : 648bdb
+Border-Color : bec8d9
+Background-Color : dbe1ea
+------------------------------------------------------------*/
+
+#con_area { width:1000px; float:left; }
+	#con_left { width:205px; margin-right:5px; float:left; }
+		#main_login { width:191px; min-height:64px; float:left; margin-left:4px; background:#f1f1f1; border:solid 1px #dcdcdc; padding-top:17px; padding-left:8px; }
+
+			/* 로그인 전 */
+			#main_login_input { width:126px; height:49px; float:left; }
+				#main_login_input li { width:126px; height:24px; float:left; }
+				#main_login_input li:first-child { margin-bottom:1px; }
+				#main_login_input input { width:110px; height:22px; border:solid 1px #ccc; padding-left:4px; color:#666; font-weight:bold; }
+			#main_login_submit { width:55px; height:49px; float:left; }
+				#main_login_submit input[type="submit"] { width:55px; height:49px; float:left; border:none; background:url(/img/main_login_submit_bt.png) no-repeat; }
+
+			/* 로그인 후 모습 */
+			#profile_img { width:60px; height:54px; float:left; }
+				#profile_img img { width:54px; height:54px; float:left; }
+			#profile_info { width:116px; height:54px; float:left; }
+				#profile_info li { width:116px; height:16px; float:left; font-size:11px; font-weight:bold; color:#666; }
+				#profile_info li.bt { width:116px; height:19px; float:left; padding-top:3px; text-align:right; }
+					#profile_info li.bt input[type="button"] { width:63px; height:19px; background:url(/img/logout_bt.png) no-repeat; font-size:11px; font-weight:bold; color:#fff; border:none; }
+					#profile_info li.bt img { margin-right:2px; }
+
+			/* 로그인 에러 메세지 */
+			#login_errmsg { width:174px; height:20px; float:left; background:#fcc; border:solid 1px #f66; margin-top:3px; margin-bottom:5px; padding-top:8px; padding-left:5px; color:#c00; }
+
+		/* Category Start */
+		#category { width:205px; min-height:20px; float:left; margin-top:5px; }
+			#category_top { width:205px; height:12px; float:left; background:url(/img/category_top_bg.png) no-repeat 4px 0; }
+
+
+			/* Category Inner Start */
+			#category_middle { width:205px; float:left; background:url(/img/category_middle_bg.png) repeat-y 4px 0; }
+				#category_middle ul.main_cate { width:205px; height:27px; float:left; margin-bottom:4px; }
+					#category_middle li.main_txt { width:175px; height:27px; float:left; }
+						#category_middle div.left_bg { width:16px; height:27px; float:left; }
+						#category_middle div.center_bg { height:20px; float:left; background:url(/img/cate_center_bg.png) repeat-x; font-size:12px; font-weight:bold; color:#fff; padding-top:7px; }
+						#category_middle div.right_bg { width:24px; height:27px; float:left; }
+					#category_middle li.view_control { width:14px; height:18px; float:left; padding-top:9px; cursor:pointer; text-align:center; }
+				#category_middle ul.sub_cate { width:185px; float:left; padding-left:20px; }
+					#category_middle ul.sub_cate li { width:176px; height:25px; padding-top:5px; padding-left:9px; float:left; background:url(/img/sub_cate_bg.png) no-repeat 0 10px; }
+						#category_middle ul.sub_cate li a { color:#648bdb; font-size:12px; }
+			/* Category Inner End */
+
+			#category_bottom { width:205px; height:12px; float:left; background:url(/img/category_bottom_bg.png) no-repeat 4px 0; }
+		/* Category End */
+
+	#con_right { width:790px; float:left; }
+		#con_right_top { width:790px; height:2px; float:left; background:url(/img/con_right_top_bg.png) no-repeat; }
+
+		/* 콘텐츠 영역 시작 */
+		#con_right_middle { width:750px; float:left; background:url(/img/con_right_middle_bg.png) repeat-y; padding:18px 20px 17px 20px; font-size:1.2em; line-height:130%; }
+			#now_total { width:750px; height:40px; float:left; font-size:12px; color:#666; }
+			.sub_info { width:750px; height:25px; float:left; border-bottom:dotted 1px #cbcbcb; }
+				.sub_info li:first-child { width:600px; height:25px; float:left; font-size:14px; font-weight:bold; color:#648bdb; }
+				.sub_info li.wdate { width:150px; height:25px; float:left; text-align:right; color:#b3b3b3; }
+					.sub_info li.wdate strong { color:#648bdb; margin-left:5px; }
+				.sub_info li:first-child span.subid { font-size:11px; color:#b3b3b3; font-weight:normal; }
+			.content_out { width:750px; padding:20px 0; float:left; }
+			.content_tags { width:750px; height:12px; border-top:dotted 1px #cbcbcb; float:left; padding-top:13px; margin-bottom:80px; }
+				.content_tags li.tags { width:650px; height:12px; float:left; }
+				.content_tags li.control { width:100px; height:12px; float:left; text-align:right; }
+				.content_tags li.control input[type="button"] { padding:2px; margin-left:3px; }
+		/* 콘텐츠 영역 끝 */
+
+		/* 페이지 영역 시작 */
+		.con_right_pageing { width:750px; height:20px; float:left; text-align:center; font-family:'맑은 고딕'; font-weight:bold; color:#666; }
+			.con_right_pageing a { color:#666; }
+			.con_right_pageing span.now { color:#f00; }
+		/* 페이지 영역 끝 */
+
+
+		#con_right_bottom { width:790px; height:3px; float:left; background:url(/img/con_right_bottom_bg.png) no-repeat; }
+ 
+/* Content End
+------------------------------------------------------------*/

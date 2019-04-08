@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0 }
+    .box { width: 100%; height: 100vh; overflow: hidden; }
+    .box:nth-of-type(1) { background-color: #f00 }
+    .box:nth-of-type(2) { background-color: #0f0 }
+    .box:nth-of-type(3){ background-color: #00f }
+
+    .icon { width: 100px; height: 100px; background: #000; margin: 100px; }
+    .box.active .icon { margin: 200px; transition: margin 1s; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon"></div>
+  </div>
+  <div class="box">
+    <div class="icon"></div>
+  </div>
+  <div class="box">
+    <div class="icon"></div>
+  </div>
+  <script>
+function isScrollInBox (scrollY, box) {
+  var offsetTop = box.offsetTop;
+  var boxHeight = box.clientHeight;
+  return scrollY >= offsetTop && scrollY <= offsetTop + boxHeight
+}
+function runAnimation (box) {
+  box.classList.add('active')
+}
+function scrollAnimation () {
+  var scrollY = this.scrollY;
+  var boxList = document.querySelectorAll('.box')
+  boxList.forEach(function (box) {
+    if (isScrollInBox(scrollY, box)) {
+      runAnimation(box)
+    }
+  })
+}
+
+window.addEventListener('scroll', scrollAnimation);
+window.onload = function () {
+  scrollAnimation();
+};
+  </script>
+</body>
+</html>

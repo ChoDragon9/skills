@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf8"></head>
+<body>
+<div id="txt"></div>
+<script>
+var arr = [
+  '안녕하세요. YEOSU T-STORY입니다.',
+  'YEOSU T-STORY를 방문하신 여러분을 환영합니다.',
+  'YEOSU T-STORY는 미향여수의 아름다움을 전하고자 제작되었습니다.'
+];
+var line = 0
+var word = 0
+var isFront = true
+setInterval(function () {
+  var txt = document.getElementById('txt');
+
+  // 추가될 때
+  if (isFront) {
+    // 한글자씩 추가
+    txt.textContent = arr[line].slice(0, ++word);
+    // 한줄을 다 썼을 때
+    if (txt.textContent == arr[line]) {
+      isFront = false;
+    }
+  // 뒤에서 삭제될 때
+  } else {
+    txt.textContent = txt.textContent.slice(0, txt.textContent.length - 1)
+
+    // 글자를 모두 삭제했을 때
+    if (txt.textContent == '') {
+      isFront = true;
+      word = 0;
+      line = line === 2 ? 0 : line + 1;
+    }
+  }
+}, 20)
+</script>
+</body>
+</html>

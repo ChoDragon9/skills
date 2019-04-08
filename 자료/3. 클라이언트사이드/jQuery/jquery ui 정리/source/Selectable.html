@@ -1,0 +1,31 @@
+<style type="text/css">
+.ui-selecting { background: #FECA40; }   
+.ui-selected { background: #F39814; color: white; }
+#select li { margin-bottom:5px; }
+</style>
+<script type="text/javascript">
+$("#select").selectable({
+	filter : 'li', //선택하고 싶은 것 선택
+	start : function(e, ui){
+		id = new Array(); //배열 초기화
+	},
+	selecting : function(e, ui){
+	},
+	selected : function(e, ui){
+		con = ui.selected.id; //선택된 것
+		num = con.substr(2); //선택된 것의 num값
+		id[num] = con; //배열에 넣음
+	},
+	stop : function(e, ui){
+		for( key in id ){
+			$("#"+id[key]).html("This id is #"+id[key]); //배열만큼 춝력
+		}
+	}
+});
+</script>
+<ul id="select">
+	<li id="id1">First</li>
+	<li id="id2">Second</li>
+	<li id="id3">Third</li>
+	<li id="id4">Fourth</li>
+</ul>

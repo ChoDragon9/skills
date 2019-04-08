@@ -1,0 +1,11 @@
+<?php
+include("./include/config.php");
+include("./mobilepage/include/lib.php");
+include("./mobilepage/include/header.php");
+if(!empty($sdt)){
+	include("./mobilepage/include/".$sdt['type'].".php");
+}else{
+	include("./mobilepage/include/board.php");
+}
+include("./mobilepage/include/footer.php");
+?>

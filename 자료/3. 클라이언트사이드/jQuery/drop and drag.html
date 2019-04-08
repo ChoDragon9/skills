@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> new document </title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<style type="text/css">
+/*
+#draggable { cursor: n-resize; } 수직 화살표
+#draggable2 { cursor: e-resize; } 수평 화살표
+*/
+#draggable { width:100px; height:100px; float:left; background-color:#dbdbdb; }
+#droppable { width:300px; height:300px; float:left; background-color:#f0f0f0; }
+#droppable2 { width:150px; height:150px; float:left; background-color:#333; }
+</style>
+<script type="text/javascript">
+$(function(){
+	/*
+	$("#draggable").draggable({
+		axis : "y" or "x", 움직일 수 있는 좌표설정
+		containment : "id" or "parent", //움직일수 있는 범위 설정
+		scroll : false or true //스크롤 생길건지 않 생길건지
+		cursor: "move" or etc 커서의 모양을 지정할 수 있음
+		cursorAt : { top:56, left:40 } 커서의 위치를 지정할 수 있음
+		distance : integer 몇 픽셀 움직인뒤 드래그 될것인지
+		delay : ms단위로 드래그 된 뒤 후에 움직일 시간
+		start:function(){},
+		drag:function(){},
+		stop:function(){},
+		handle : "p" 드래그를 할때 시작을 하기위한 element설정
+		cancel : "p.ui-widget-header" 드래그를 할때 시작을 못하게 하는 것
+		revert : true 드래그 후 되돌아갈것인지
+		helper : "clone" 속객체만 선택
+		snap ??
+		grid : [80,80] 드래그 할 때마다 움직이는 px거리
+		connectToSortable : "#sortable" 연결할 sortable
+	});
+	*/
+	$("#draggable").draggable({
+		revert:"invalid" //drop된 후 다시 droppable에 drop이 되지 않으면 다시 돌아감
+	});
+	$("#droppable, #droppable2").droppable({
+		greedy : true,
+		//만약에 #droppable,#droppable2이런식으로 두개 일때 true를 하면 따로 따로 drop이되고,
+		//그렇지 않으면 하나로 생각하게 된다.
+		accept : "#draggable", //drop할 element
+		activeClass :"ui-state-hover", //움직일 때 Class
+		hoverClass : "ui-state-active", //hover됬을 때 Class
+		drop : function(event,ui){
+			id = $(this).attr("id");
+			$(this).find("p").html(id);
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div id="draggable">
+	<p>Drag me to my target</p>
+</div>
+<div id="droppable">
+	<p>Drop here</p>
+	<div id="droppable2">
+	</div>
+</div>
+</body>
+</html>

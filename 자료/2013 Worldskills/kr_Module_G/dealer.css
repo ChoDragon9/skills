@@ -1,0 +1,127 @@
+* {margin:0; padding:0; -moz-user-select:none; -ms-user-select:none;}
+html, body {width:100%; height:100%; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:center; font-family:Myriad pro; background-color:#ededed;}
+
+#salon{
+	width:100%;
+	height:1100px;
+	position:relative;
+}
+#display{
+	width:100%;
+	height:200px;
+	background-color:rgb(0,90,195);
+	position:relative;
+	top:0; 
+	left:0;
+}
+#display ul{padding:0px; margin-left:270px;}
+#display ul li{
+	float:left;
+	line-height:200px;
+	font-size:1.5em;
+	list-style:none;
+	color:#fff;
+	margin-right:20px;
+}
+.count { margin-left:-80px; font-size:1.5em; color:#fff; padding:50px 0; }
+.count span { font-size:1.5em; font-weight:bold; }
+#display ul li span { font-size:1.5em; font-weight:bold; }
+.client{
+	width:80px; 
+	height:80px;
+	line-height:80px;
+	font-size:10px;
+	border:1px solid;	
+	background-color:#FFF;
+	line-height:10px;
+	background-position:bottom;
+	background-repeat:no-repeat;
+    position:relative;
+	margin-top:10px;
+}
+.preference { position:absolute; bottom:0px; left:0; padding:5px 0; background-color:rgba(0,0,0,.7); color:#fff;  width:100%; }
+#clients_queue{
+	width:170px;
+	padding-left:80px;
+	height:1100px;
+	background-color:#111;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#clients_queue .client { opacity:.5; }
+#clients_queue .count+.client { opacity:1; }
+#cars_place{
+	position:absolute;
+	top:220px;
+	left:270px;
+}
+#cashier{
+	width:250px;
+	height:180px;
+	background:#fff url('images/cashier.jpg') no-repeat right bottom;
+	background-size:auto 100%;
+	position:absolute;
+	top:10px;
+	left:650px;
+	border-radius:5px;
+}
+#exit{
+	width:180px;
+	height:180px;
+	position:absolute;
+	top:10px;
+	left:920px;
+	background:#fff;
+	overflow:hidden;
+}
+#exit img { width:100%; height:100%; }
+.car { width:130px; height:80px; margin-left:40px; background-color:#fff; border:solid 1px #dbdbdb; border-radius:10px; margin-bottom:30px; position:relative; display:block; }
+.car img { width:100%; height:100%; border-radius:10px; }
+span.sold { position:absolute; top:0; left:0; width:100%; height:100%; }
+.finish { position:absolute; bottom:10px; left:10px; width:50px; height:50px; background-size:100%; }
+.place{
+	width:220px;
+	padding-top:120px;
+	min-height:700px;
+	border:1px solid #dbdbdb;
+	border-radius:10px;
+	float:left;
+	margin-right:20px;
+}
+#volkswagen{
+	background:#fff url('images/volkswagen-logo.jpg') no-repeat center 25px;
+	background-repeat:no-repeat;
+	background-size:70px auto;
+}
+#porsche{
+	background:#fff url('images/Porsche-logo.jpg') no-repeat center 15px;
+	background-repeat:no-repeat;
+	background-size:70px auto;
+}
+#audi{
+	background:#fff url('images/audi-logo.jpg') no-repeat center 40px;
+	background-repeat:no-repeat;
+	background-size:70px auto;
+}
+#bmw{
+	background:#fff url('images/bmw-logo.jpg') no-repeat center 25px;
+	background-repeat:no-repeat;
+	background-size:70px auto;
+}
+.client_1{background-image:url(images/client_1.jpg);}
+.client_2{background-image:url(images/client_2.jpg);}
+.client_3{background-image:url(images/client_3.jpg);}
+.client_4{background-image:url(images/client_4.jpg);}
+.client_5{background-image:url(images/client_5.jpg);}
+.client_6{background-image:url(images/client_6.jpg);}
+.client_7{background-image:url(images/client_7.jpg);}
+.client_8{background-image:url(images/client_8.jpg);}
+.client_9{background-image:url(images/client_9.jpg);}
+.client_10{background-image:url(images/client_10.jpg);}
+
+.wrap_msg { width:100%; position:fixed; height:100%; top:0; left:0; z-index:1000; } 
+.msg { width:300px; height:150px; border-radius:10px; box-shadow:0 0 0 8px rgba(0,0,0,.6); margin:300px auto; background-color:#fff; }
+.msg p { width:100%; margin-top:40px; line-height:40px; background-color:rgb(0,90,195); font-size:1.5em; color:#fff; text-align:center; float:left; }
+.msg .btn { width:100%; margin-top:20px; float:left; }
+.msg input { width:80px; height:30px; background-color:#111; color:#fff; border:none; }

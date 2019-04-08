@@ -1,0 +1,14 @@
+<script type="text/javascript">
+$("#dialog").dialog({
+	autoOpen : false,
+	show : "blind",
+	hide : "explode"
+});
+$("button").click(function(){
+	$("#dialog").dialog("open");
+});
+</script>
+<button>open</button>
+<div id="dialog" title="Dialog Subject">
+	It is a Subject.
+</div>

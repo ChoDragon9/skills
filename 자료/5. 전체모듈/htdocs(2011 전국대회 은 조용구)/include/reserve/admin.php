@@ -1,0 +1,5 @@
+<?
+sql("update experlist set state='½ÂÀÎ' where no='$day3'");
+alert("½ÂÀÎµÇ¾ú½À´Ï´Ù.");
+move(PAGE);
+?>

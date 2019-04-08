@@ -1,0 +1,12 @@
+/* Reset */
+* { margin:0; padding:0; }
+ul ,li { list-style:none; }
+
+/* Layout */
+#wrap { width:1000px; margin:50px auto 0; }
+	#wrap > div { float:left; }
+	#left_content { width:176px; padding:10px; border:2px solid #dbdbdb; border-collapse:collapse; }
+		#left_content li { margin-bottom:10px; }
+	#right_content { width:776px; padding:10px; border:2px solid #dbdbdb; border-left:none; }
+
+.newClass { background:#dbdbdb; font-size:15px; color:#69bbff; width:100px; height:100px; }

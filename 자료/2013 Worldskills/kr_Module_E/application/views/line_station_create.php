@@ -1,0 +1,20 @@
+
+<div class="form">
+<?php
+echo form_open_multipart(FORM);
+echo form_hidden('test','test');
+
+
+echo '<div class="row">';
+echo form_label('start station','station_id');
+foreach($list as $val){
+	$arr[$val["id"]] = $val['name'];
+}
+echo form_dropdown('station_id',$arr);
+echo '</div>';
+
+
+echo form_submit('Submit','Submit');
+echo form_close();
+?>
+</div><!-- form -->
