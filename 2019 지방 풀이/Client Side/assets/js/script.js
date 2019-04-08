@@ -4,7 +4,7 @@
 - [DONE] SIDE메뉴의 Category 또는 ALL을 클릭하면 해당 하는 앨범목록 또는 전체목록이 Content 영역에 음원발매일 기준 내림차순으로 정렬하여
   앨범자켓이미지, 앨범이름, 아티스트, 발매일, 가격, 쇼핑카트담기에 대한 정확한 정보를 보여준다.
 - [DONE] TITLE에 선택된 Category 이름을 표시한다.
-- 앨범검색INPUT에 검색어를 입력하고 검색 버튼을 클릭하거나 Enter키를 누르면 해당 Category의 앨범에서 앨범이름 또는 가수명이 검색어에 포함되는 앨범목록을 모두 보여 준다.
+- 앨범검색 INPUT에 검색어를 입력하고 검색 버튼을 클릭하거나 Enter키를 누르면 해당 Category의 앨범에서 앨범이름 또는 가수명이 검색어에 포함되는 앨범목록을 모두 보여 준다.
 - 검색어와 일치하는 앨범이름 또는 가수명의 검색키워드를 하이라이트로 표시한다.
 - 검색어와 일치하는 앨범이 없을 경우 “검색된 앨범이 없습니다.” 라고 나타낸다.
 - 카트담기, 추가하기 버튼을 클릭하면 상단 카트정보에 앨범수량과 가격이 합산되어 보여지며 카트담기 버튼은 추가하기 버튼 으로 변경된다.
@@ -26,6 +26,7 @@
 - 뷰는 모델을 사용하여 메뉴나 Content 영역을 보여주는 역할을 합니다.
 - 컨트롤러는 메뉴 클릭, 검색 버튼 클릭, Enter 키 누르기와 같은 이벤트를 의미힙니다.
 */
+const toNumber = date => Number(date.split('.').join(''))
 
 // Model
 const model = {
@@ -34,17 +35,16 @@ const model = {
     currentCategory: 'ALL'
   }
 }
-const fetchMusicData = () => {
-  return fetch('./music_data.json').then(response => response.json())
-}
-const toNumber = date => Number(date.split('.').join(''))
 const initModel = result => {
   result.data.sort((a, b) => {
     return toNumber(b.release) - toNumber(a.release)
   })
   model.musicData = result.data
 }
-const changeCurrentCategory = category => {
+const fetchMusicData = () => {
+  return fetch('./music_data.json').then(response => response.json())
+}
+const setCurrentCategory = category => {
   model.storage.currentCategory = category
 }
 const getCurrentCategoryMusic = () => {
@@ -55,8 +55,6 @@ const getCurrentCategoryMusic = () => {
     return model.musicData.filter(({category}) => category === currentCategory)
   }
 }
-
-// View
 const getCategory = () => {
   const categories = new Set()
   model.musicData.forEach(({category}) => {
@@ -64,6 +62,8 @@ const getCategory = () => {
   })
   return categories
 }
+
+// View
 const showCategory = () => {
   let html = `<li data-category="ALL">
     <a href="#" class="${model.storage.currentCategory === 'ALL' ? 'active-menu' : ''}">
@@ -129,7 +129,7 @@ const initView = () => {
 const initController = () => {
   $(document)
     .on('click', '#main-menu li:not(.text-center)', function () {
-      changeCurrentCategory($(this).data('category'))
+      setCurrentCategory($(this).data('category'))
       initView()
     })
 }
