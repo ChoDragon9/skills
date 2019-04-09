@@ -18,8 +18,8 @@
 - 쇼핑카트에는 총 합계금액을 나타낸다.
 
 [공통]
-- 앨범리스트, 쇼핑카트의 모든 정보가 브라우저를 종료하고 다시 접속하여도 정상적으로 유지되어야 한다.
-- 가격정보가(가격, 합계, 총 합계금액) 4자리 이상일 경우 3자리마다 콤마(,)를 표기하고 ₩단위를 나타낸다.
+- [DONE] 앨범리스트, 쇼핑카트의 모든 정보가 브라우저를 종료하고 다시 접속하여도 정상적으로 유지되어야 한다.
+- [DONE] 가격정보가(가격, 합계, 총 합계금액) 4자리 이상일 경우 3자리마다 콤마(,)를 표기하고 ₩단위를 나타낸다.
 */
 const toNumber = date => Number(date.split('.').join(''))
 
@@ -37,12 +37,24 @@ const initModel = result => {
     return toNumber(b.release) - toNumber(a.release)
   })
   model.musicData = result.data
+  loadModel()
+}
+const saveModel = () => {
+  const {currentCategory, searchKeyword, cart} = model
+  localStorage.setItem('model', JSON.stringify({currentCategory, searchKeyword, cart}))
+}
+const loadModel = () => {
+  if (localStorage.getItem('model')) {
+    const {currentCategory, searchKeyword, cart} = JSON.parse(localStorage.getItem('model'))
+    Object.assign(model, {currentCategory, searchKeyword, cart})
+  }
 }
 const fetchMusicData = () => {
   return fetch('./music_data.json').then(response => response.json())
 }
 const setCurrentCategory = category => {
   model.currentCategory = category
+  saveModel()
 }
 const getCurrentCategoryMusic = () => {
   const currentCategory = model.currentCategory
@@ -68,17 +80,17 @@ const getCategories = () => {
 }
 const setSearchKeyword = keyword => {
   model.searchKeyword = keyword
+  saveModel()
 }
 const addMusicInCart = (artist, albumName) => {
   const musicInCart = findMusicInCart(artist, albumName)
   if (musicInCart) {
     musicInCart.count++
   } else {
-    model.cart.push({
-      music: model.musicData.find(music => music.artist === artist && music.albumName === albumName),
-      count: 1
-    })
+    const music = model.musicData.find(music => music.artist === artist && music.albumName === albumName)
+    model.cart.push({music, count: 1})
   }
+  saveModel()
 }
 const findMusicInCart = (artist, albumName) => {
   return model.cart.find(({music}) => music.artist === artist && music.albumName === albumName)
@@ -101,6 +113,8 @@ const showCategory = () => {
   const mainMenu = $('#main-menu')
   mainMenu.find('li:not(.text-center)').remove()
   mainMenu.append(html)
+
+  $('#main-menu .search .form-control').val(model.searchKeyword)
 }
 const showTitle = () => {
   $('#page-inner h2').html(model.currentCategory)
@@ -133,7 +147,7 @@ const showContents = () => {
             </span>
             <span>
               <i class="fa fa-money"> 가격</i>
-              <p>￦${price}</p>
+              <p>￦${addComma(price)}원</p>
             </span>
             <span class="shopbtn">
               <button 
@@ -158,7 +172,7 @@ const showCart = () => {
     total.count += count
   })
   $('.navbar .panel-body > .btn').html(
-    `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${total.price}원`
+    `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${addComma(total.price)}원`
   )
 }
 const highlightSearchKeyword = str => {
@@ -170,6 +184,7 @@ const highlightSearchKeyword = str => {
     `<span style="background-color: #ffff00; display: inline">${model.searchKeyword}</span>`
   )
 }
+const addComma = price => parseInt(price).toLocaleString()
 const initView = () => {
   showCategory()
   showTitle()
@@ -195,8 +210,8 @@ const initController = () => {
       showContents()
     })
     .on('click', '.shopbtn .btn', function () {
-      const artist = $(this).data('artist')
-      const albumName = $(this).data('album-name')
+      const artist = String($(this).data('artist'))
+      const albumName = String($(this).data('album-name'))
       addMusicInCart(artist, albumName)
       showContents()
       showCart()
