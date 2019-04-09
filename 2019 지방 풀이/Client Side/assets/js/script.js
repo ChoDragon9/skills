@@ -31,9 +31,7 @@ const toNumber = date => Number(date.split('.').join(''))
 // Model
 const model = {
   musicData: [],
-  storage: {
-    currentCategory: 'ALL'
-  }
+  currentCategory: 'ALL'
 }
 const initModel = result => {
   result.data.sort((a, b) => {
@@ -45,17 +43,16 @@ const fetchMusicData = () => {
   return fetch('./music_data.json').then(response => response.json())
 }
 const setCurrentCategory = category => {
-  model.storage.currentCategory = category
+  model.currentCategory = category
 }
 const getCurrentCategoryMusic = () => {
-  const currentCategory = model.storage.currentCategory
+  const currentCategory = model.currentCategory
   if (currentCategory === 'ALL') {
     return model.musicData
-  } else {
-    return model.musicData.filter(({category}) => category === currentCategory)
   }
+  return model.musicData.filter(({category}) => category === currentCategory)
 }
-const getCategory = () => {
+const getCategories = () => {
   const categories = new Set()
   model.musicData.forEach(({category}) => {
     categories.add(category)
@@ -66,12 +63,12 @@ const getCategory = () => {
 // View
 const showCategory = () => {
   let html = `<li data-category="ALL">
-    <a href="#" class="${model.storage.currentCategory === 'ALL' ? 'active-menu' : ''}">
+    <a href="#" class="${model.currentCategory === 'ALL' ? 'active-menu' : ''}">
       <i class="fa fa-th-list fa-2x"></i><span>ALL</span>
     </a>
   </li>`
-  for (const category of getCategory()) {
-    const isCurrentCategory = model.storage.currentCategory === category
+  for (const category of getCategories()) {
+    const isCurrentCategory = model.currentCategory === category
     html += `<li data-category="${category}">
         <a href="#" class="${isCurrentCategory ? 'active-menu' : ''}"><i class="fa fa-youtube-play fa-2x"></i> <span>${category}</span></a>
     </li>`
@@ -82,7 +79,7 @@ const showCategory = () => {
   mainMenu.append(html)
 }
 const showTitle = () => {
-  $('#page-inner h2').html(model.storage.currentCategory)
+  $('#page-inner h2').html(model.currentCategory)
 }
 const showContents = () => {
   const html = getCurrentCategoryMusic()
