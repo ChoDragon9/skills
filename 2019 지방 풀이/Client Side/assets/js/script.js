@@ -44,9 +44,9 @@ const saveModel = () => {
   localStorage.setItem('model', JSON.stringify({currentCategory, searchKeyword, cart}))
 }
 const loadModel = () => {
-  if (localStorage.getItem('model')) {
-    const {currentCategory, searchKeyword, cart} = JSON.parse(localStorage.getItem('model'))
-    Object.assign(model, {currentCategory, searchKeyword, cart})
+  const modelInStorage = localStorage.getItem('model')
+  if (modelInStorage) {
+    Object.assign(model, JSON.parse(modelInStorage))
   }
 }
 const fetchMusicData = () => {
@@ -87,7 +87,7 @@ const addMusicInCart = (artist, albumName) => {
   if (musicInCart) {
     musicInCart.count++
   } else {
-    const music = model.musicData.find(music => music.artist === artist && music.albumName === albumName)
+    const music = model.musicData.find(music => isSameMusic(music, artist, albumName))
     model.cart.push({music, count: 1})
   }
   saveModel()
@@ -97,11 +97,9 @@ const clearCart = () => {
   saveModel()
 }
 const removeMusicInCart = (artist, albumName) => {
-  if (confirm('정말 삭제 하시겠습니까?')) {
-    const index = model.cart.findIndex(({music}) => music.artist === artist && music.albumName === albumName)
-    model.cart.splice(index, 1)
-    saveModel()
-  }
+  const index = model.cart.findIndex(({music}) => isSameMusic(music, artist, albumName))
+  model.cart.splice(index, 1)
+  saveModel()
 }
 const changeCountOfMusic = (artist, albumName, count) => {
   const musicInCart = findMusicInCart(artist, albumName)
@@ -109,8 +107,9 @@ const changeCountOfMusic = (artist, albumName, count) => {
   saveModel()
 }
 const findMusicInCart = (artist, albumName) => {
-  return model.cart.find(({music}) => music.artist === artist && music.albumName === albumName)
+  return model.cart.find(({music}) => isSameMusic(music, artist, albumName))
 }
+const isSameMusic = (music, artist, albumName) => music.artist === artist && music.albumName === albumName
 
 // View
 const showCategory = () => {
@@ -256,17 +255,13 @@ const initController = () => {
     })
     .on('keyup', '#main-menu .search .form-control', function (event) {
       setSearchKeyword($(this).val().trim())
-
       if (event.keyCode == 13) {
         initView()
       }
     })
-    .on('click', '#main-menu .search .btn', function () {
-      initView()
-    })
+    .on('click', '#main-menu .search .btn', initView)
     .on('click', '.shopbtn .btn', function () {
-      const artist = String($(this).data('artist'))
-      const albumName = String($(this).data('album-name'))
+      const [artist, albumName] = getAttrs($(this), ['artist', 'album-name'])
       addMusicInCart(artist, albumName)
       initView()
     })
@@ -277,21 +272,25 @@ const initController = () => {
       initView()
     })
     .on('click', '.modal-body tbody .btn', function () {
-      const artist = String($(this).data('artist'))
-      const albumName = String($(this).data('album-name'))
+      if (!confirm('정말 삭제 하시겠습니까?')) {
+        return
+      }
+      const [artist, albumName] = getAttrs($(this), ['artist', 'album-name'])
       removeMusicInCart(artist, albumName)
       initView()
     })
-    .on('input', '.albumqty .form-control', function () {
+    .on('blur', '.albumqty .form-control', function () {
       const input = $(this)
       if (input.val() < 1) {
         input.val(1)
       }
-      const artist = String(input.data('artist'))
-      const albumName = String(input.data('album-name'))
+      const [artist, albumName] = getAttrs(input, ['artist', 'album-name'])
       changeCountOfMusic(artist, albumName, input.val())
       initView()
     })
+}
+const getAttrs = (elem, attrNames) => {
+  return attrNames.map((name) => String(elem.data(name)))
 }
 
 fetchMusicData().then((result) => {
