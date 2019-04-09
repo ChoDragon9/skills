@@ -33,10 +33,12 @@ const model = {
   ]
 }
 const initModel = result => {
-  result.data.sort((a, b) => {
+  const musicData = result.data.map((music, idx) => Object.assign(music, {idx}))
+  musicData.sort((a, b) => {
     return toNumber(b.release) - toNumber(a.release)
   })
-  model.musicData = result.data
+  model.musicData = musicData
+  model.cart = Array.from({length: musicData.length})
   loadModel()
 }
 const saveModel = () => {
@@ -52,16 +54,19 @@ const loadModel = () => {
 const fetchMusicData = () => {
   return fetch('./music_data.json').then(response => response.json())
 }
-const setCurrentCategory = category => {
-  model.currentCategory = category
-  saveModel()
-}
 const getCurrentCategoryMusic = () => {
   const currentCategory = model.currentCategory
   if (currentCategory === 'ALL') {
     return model.musicData
   }
   return model.musicData.filter(({category}) => category === currentCategory)
+}
+const getCategories = () => {
+  const categories = new Set()
+  model.musicData.forEach(({category}) => {
+    categories.add(category)
+  })
+  return categories
 }
 const searchMusicData = musicData => {
   if (!model.searchKeyword) {
@@ -71,24 +76,19 @@ const searchMusicData = musicData => {
     return albumName.includes(model.searchKeyword) || artist.includes(model.searchKeyword)
   })
 }
-const getCategories = () => {
-  const categories = new Set()
-  model.musicData.forEach(({category}) => {
-    categories.add(category)
-  })
-  return categories
+const setCurrentCategory = category => {
+  model.currentCategory = category
+  saveModel()
 }
 const setSearchKeyword = keyword => {
   model.searchKeyword = keyword
   saveModel()
 }
-const addMusicInCart = (artist, albumName) => {
-  const musicInCart = findMusicInCart(artist, albumName)
-  if (musicInCart) {
-    musicInCart.count++
+const addMusicInCart = idx => {
+  if (model.cart[idx]) {
+    model.cart[idx]++
   } else {
-    const music = model.musicData.find(music => isSameMusic(music, artist, albumName))
-    model.cart.push({music, count: 1})
+    model.cart[idx] = 1
   }
   saveModel()
 }
@@ -96,20 +96,16 @@ const clearCart = () => {
   model.cart = []
   saveModel()
 }
-const removeMusicInCart = (artist, albumName) => {
-  const index = model.cart.findIndex(({music}) => isSameMusic(music, artist, albumName))
-  model.cart.splice(index, 1)
+const removeMusicInCart = idx => {
+  model.cart[idx] = null
   saveModel()
 }
-const changeCountOfMusic = (artist, albumName, count) => {
-  const musicInCart = findMusicInCart(artist, albumName)
-  musicInCart.count = Number(count)
+const changeCountOfMusic = (idx, count) => {
+  model.cart[idx] = Number(count)
   saveModel()
 }
-const findMusicInCart = (artist, albumName) => {
-  return model.cart.find(({music}) => isSameMusic(music, artist, albumName))
-}
-const isSameMusic = (music, artist, albumName) => music.artist === artist && music.albumName === albumName
+const findMusicInCart = idx => model.cart[idx]
+const findMusic = idx => model.musicData.find(music => music.idx === idx)
 
 // View
 const showCategory = () => {
@@ -143,8 +139,8 @@ const showContents = () => {
     return
   }
   const html = musicData
-    .map(({albumJaketImage, albumName, artist, release, price}) => {
-      const musicInCart = findMusicInCart(artist, albumName)
+    .map(({albumJaketImage, albumName, artist, release, price, idx}) => {
+      const musicInCart = findMusicInCart(idx)
       return `<div class="col-md-2 col-sm-2 col-xs-2 product-grid">
         <div class="product-items">
           <div class="project-eff">
@@ -167,10 +163,9 @@ const showContents = () => {
             <span class="shopbtn">
               <button 
                 class="btn btn-default btn-xs" 
-                data-artist="${artist}"
-                data-album-name="${albumName}">
+                data-idx="${idx}">
                 <i class="fa fa-shopping-cart"></i> 
-                ${musicInCart ? `추가하기 (${musicInCart.count}개)` : '쇼핑카트담기'}
+                ${musicInCart ? `추가하기 (${musicInCart}개)` : '쇼핑카트담기'}
               </button>
             </span>
           </div>
@@ -182,15 +177,25 @@ const showContents = () => {
 }
 const showCart = () => {
   const total = {price: 0, count: 0}
-  model.cart.forEach(({music, count}) => {
+  const musicInCart = model.cart
+    .map((count, idx) => {
+      if (!count) {
+        return count
+      }
+      return {
+        count,
+        music: findMusic(idx),
+      }
+    })
+    .filter(count => count)
+  
+  musicInCart.forEach(({music, count}) => {
     total.price += parseInt(music.price) * count
     total.count += count
   })
-  $('.navbar .panel-body > .btn').html(
-    `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${addComma(total.price)}원`
-  )
 
-  const html = model.cart.map(({music, count}) => {
+  const cartInfoView = `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${addComma(total.price)}원`
+  const cartView = musicInCart.map(({music, count}) => {
     return `<tr>
       <td class="albuminfo">
         <img src="images/${music.albumJaketImage}">
@@ -212,21 +217,21 @@ const showCart = () => {
           type="number" 
           class="form-control" 
           value="${count}"
-          data-artist="${music.artist}"
-          data-album-name="${music.albumName}">
+          data-idx="${music.idx}">
       </td>
       <td class="pricesum">￦ ${addComma(parseInt(music.price) * count)}</td>
       <td>
         <button 
           class="btn btn-default" 
-          data-artist="${music.artist}"
-          data-album-name="${music.albumName}">
+          data-idx="${music.idx}">
             <i class="fa fa-trash-o"></i> 삭제
         </button>
       </td>
     </tr>`
   })
-  $('.modal-body tbody').html(html)
+
+  $('.navbar .panel-body > .btn').html(cartInfoView)
+  $('.modal-body tbody').html(cartView)
   $('.totalprice span').text(`￦${addComma(total.price)}`)
 }
 const highlightSearchKeyword = str => {
@@ -261,8 +266,8 @@ const initController = () => {
     })
     .on('click', '#main-menu .search .btn', initView)
     .on('click', '.shopbtn .btn', function () {
-      const [artist, albumName] = getAttrs($(this), ['artist', 'album-name'])
-      addMusicInCart(artist, albumName)
+      const idx = extractIdx(this)
+      addMusicInCart(idx)
       initView()
     })
     .on('click', '.modal-footer .btn-primary', function () {
@@ -275,8 +280,8 @@ const initController = () => {
       if (!confirm('정말 삭제 하시겠습니까?')) {
         return
       }
-      const [artist, albumName] = getAttrs($(this), ['artist', 'album-name'])
-      removeMusicInCart(artist, albumName)
+      const idx = extractIdx(this)
+      removeMusicInCart(idx)
       initView()
     })
     .on('blur', '.albumqty .form-control', function () {
@@ -284,14 +289,12 @@ const initController = () => {
       if (input.val() < 1) {
         input.val(1)
       }
-      const [artist, albumName] = getAttrs(input, ['artist', 'album-name'])
-      changeCountOfMusic(artist, albumName, input.val())
+      const idx = extractIdx(this)
+      changeCountOfMusic(idx, input.val())
       initView()
     })
 }
-const getAttrs = (elem, attrNames) => {
-  return attrNames.map((name) => String(elem.data(name)))
-}
+const extractIdx = elem => Number($(elem).data('idx'))
 
 fetchMusicData().then((result) => {
   initModel(result)
