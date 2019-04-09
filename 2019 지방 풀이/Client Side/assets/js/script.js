@@ -4,9 +4,9 @@
 - [DONE] SIDE메뉴의 Category 또는 ALL을 클릭하면 해당 하는 앨범목록 또는 전체목록이 Content 영역에 음원발매일 기준 내림차순으로 정렬하여
   앨범자켓이미지, 앨범이름, 아티스트, 발매일, 가격, 쇼핑카트담기에 대한 정확한 정보를 보여준다.
 - [DONE] TITLE에 선택된 Category 이름을 표시한다.
-- 앨범검색 INPUT에 검색어를 입력하고 검색 버튼을 클릭하거나 Enter키를 누르면 해당 Category의 앨범에서 앨범이름 또는 가수명이 검색어에 포함되는 앨범목록을 모두 보여 준다.
-- 검색어와 일치하는 앨범이름 또는 가수명의 검색키워드를 하이라이트로 표시한다.
-- 검색어와 일치하는 앨범이 없을 경우 “검색된 앨범이 없습니다.” 라고 나타낸다.
+- [DONE] 앨범검색 INPUT에 검색어를 입력하고 검색 버튼을 클릭하거나 Enter키를 누르면 해당 Category의 앨범에서 앨범이름 또는 가수명이 검색어에 포함되는 앨범목록을 모두 보여 준다.
+- [DONE] 검색어와 일치하는 앨범이름 또는 가수명의 검색키워드를 하이라이트로 표시한다.
+- [DONE] 검색어와 일치하는 앨범이 없을 경우 “검색된 앨범이 없습니다.” 라고 나타낸다.
 - 카트담기, 추가하기 버튼을 클릭하면 상단 카트정보에 앨범수량과 가격이 합산되어 보여지며 카트담기 버튼은 추가하기 버튼 으로 변경된다.
 - 추가하기 버튼 에는 현재 해당앨범이 카트에 담긴 수량을 표시한다.
 
@@ -31,7 +31,8 @@ const toNumber = date => Number(date.split('.').join(''))
 // Model
 const model = {
   musicData: [],
-  currentCategory: 'ALL'
+  currentCategory: 'ALL',
+  searchKeyword: ''
 }
 const initModel = result => {
   result.data.sort((a, b) => {
@@ -52,12 +53,23 @@ const getCurrentCategoryMusic = () => {
   }
   return model.musicData.filter(({category}) => category === currentCategory)
 }
+const searchMusicData = musicData => {
+  if (!model.searchKeyword) {
+    return musicData
+  }
+  return musicData.filter(({albumName, artist}) => {
+    return albumName.includes(model.searchKeyword) || artist.includes(model.searchKeyword)
+  })
+}
 const getCategories = () => {
   const categories = new Set()
   model.musicData.forEach(({category}) => {
     categories.add(category)
   })
   return categories
+}
+const setSearchKeyword = keyword => {
+  model.searchKeyword = keyword
 }
 
 // View
@@ -82,7 +94,14 @@ const showTitle = () => {
   $('#page-inner h2').html(model.currentCategory)
 }
 const showContents = () => {
-  const html = getCurrentCategoryMusic()
+  const musicData = searchMusicData(getCurrentCategoryMusic())
+  const container = $('.contents.col-md-12')
+
+  if (musicData.length === 0) {
+    container.html('검색된 앨범이 없습니다.')
+    return
+  }
+  const html = musicData
     .map(({albumJaketImage, albumName, artist, release, price}) => {
       return `<div class="col-md-2 col-sm-2 col-xs-2 product-grid">
         <div class="product-items">
@@ -90,10 +109,10 @@ const showContents = () => {
             <img class="img-responsive" src="images/${albumJaketImage}" alt="${albumName}">
           </div>
           <div class="produ-cost">
-            <h5>${albumName}</h5>
+            <h5>${highlightSearchKeyword(albumName)}</h5>
             <span>
               <i class="fa fa-microphone"> 아티스트</i> 
-              <p>${artist}</p>
+              <p>${highlightSearchKeyword(artist)}</p>
             </span>
             <span>
               <i class="fa  fa-calendar"> 발매일</i> 
@@ -113,8 +132,13 @@ const showContents = () => {
       </div>`
     })
     .join('')
-
-  $('.contents.col-md-12').html(html)
+  container.html(html)
+}
+const highlightSearchKeyword = str => {
+  if (!model.searchKeyword) {
+    return str
+  }
+  return str.replace(new RegExp(model.searchKeyword, 'g'), `<span style="background-color: #ffff00; display: inline">${model.searchKeyword}</span>`)
 }
 const initView = () => {
   showCategory()
@@ -128,6 +152,16 @@ const initController = () => {
     .on('click', '#main-menu li:not(.text-center)', function () {
       setCurrentCategory($(this).data('category'))
       initView()
+    })
+    .on('keyup', '#main-menu .search .form-control', function (event) {
+      setSearchKeyword($(this).val().trim())
+
+      if (event.keyCode == 13) {
+        showContents()
+      }
+    })
+    .on('click', '#main-menu .search .btn', function () {
+      showContents()
     })
 }
 
