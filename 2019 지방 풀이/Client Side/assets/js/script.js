@@ -11,11 +11,11 @@
 - [DONE] 추가하기 버튼 에는 현재 해당앨범이 카트에 담긴 수량을 표시한다.
 
 [쇼핑카트]
-- 상단 카트정보를 클릭하면 Modal창이 열리고 카트에 담긴 앨범목록을 모두 보여준다. 목 록에는 앨범정보[앨범자켓이미지, 앨범이름, 아티스트, 발매일], 가격, 수량, 합계, 삭제에 대한 정확정보를 보여준다.
-- 수량을 1이상 입력할 수 있으며 수량 변경 시 합계 금액과 총 합계금액이 자동으로 계산 되어 표시되고 앨범리스트에서 해당 앨범목록의 추가하기 버튼의 앨범수량 및 상단 카트 정보에도 적용되어 나타나도록 제작한다.
-- 삭제 버튼을 클릭하면 “정말 삭제 하시겠습니까?” 문구를 보여주고 확인을 클릭하면 해 당 앨범목록이 쇼핑카트에서 삭제된다.
-- 결제하기 버튼을 클릭하면 “결제가 완료되었습니다.” 문구를 보여주고 쇼핑카트의 앨범목 록이 모두 삭제되고 Modal창이 닫힌다.
-- 쇼핑카트에는 총 합계금액을 나타낸다.
+- [DONE] 상단 카트정보를 클릭하면 Modal창이 열리고 카트에 담긴 앨범목록을 모두 보여준다. 목록에는 앨범정보[앨범자켓이미지, 앨범이름, 아티스트, 발매일], 가격, 수량, 합계, 삭제에 대한 정확정보를 보여준다.
+- [DONE] 수량을 1이상 입력할 수 있으며 수량 변경 시 합계 금액과 총 합계금액이 자동으로 계산 되어 표시되고 앨범리스트에서 해당 앨범목록의 추가하기 버튼의 앨범수량 및 상단 카트 정보에도 적용되어 나타나도록 제작한다.
+- [DONE] 삭제 버튼을 클릭하면 “정말 삭제 하시겠습니까?” 문구를 보여주고 확인을 클릭하면 해 당 앨범목록이 쇼핑카트에서 삭제된다.
+- [DONE] 결제하기 버튼을 클릭하면 “결제가 완료되었습니다.” 문구를 보여주고 쇼핑카트의 앨범목 록이 모두 삭제되고 Modal창이 닫힌다.
+- [DONE] 쇼핑카트에는 총 합계금액을 나타낸다.
 
 [공통]
 - [DONE] 앨범리스트, 쇼핑카트의 모든 정보가 브라우저를 종료하고 다시 접속하여도 정상적으로 유지되어야 한다.
@@ -90,6 +90,22 @@ const addMusicInCart = (artist, albumName) => {
     const music = model.musicData.find(music => music.artist === artist && music.albumName === albumName)
     model.cart.push({music, count: 1})
   }
+  saveModel()
+}
+const clearCart = () => {
+  model.cart = []
+  saveModel()
+}
+const removeMusicInCart = (artist, albumName) => {
+  if (confirm('정말 삭제 하시겠습니까?')) {
+    const index = model.cart.findIndex(({music}) => music.artist === artist && music.albumName === albumName)
+    model.cart.splice(index, 1)
+    saveModel()
+  }
+}
+const changeCountOfMusic = (artist, albumName, count) => {
+  const musicInCart = findMusicInCart(artist, albumName)
+  musicInCart.count = Number(count)
   saveModel()
 }
 const findMusicInCart = (artist, albumName) => {
@@ -167,13 +183,52 @@ const showContents = () => {
 }
 const showCart = () => {
   const total = {price: 0, count: 0}
-  model.cart.map(({music, count}) => {
+  model.cart.forEach(({music, count}) => {
     total.price += parseInt(music.price) * count
     total.count += count
   })
   $('.navbar .panel-body > .btn').html(
     `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${addComma(total.price)}원`
   )
+
+  const html = model.cart.map(({music, count}) => {
+    return `<tr>
+      <td class="albuminfo">
+        <img src="images/${music.albumJaketImage}">
+        <div class="info">
+          <h4>${music.albumName}</h4>
+          <span>
+            <i class="fa fa-microphone"> 아티스트</i> 
+            <p>${music.artist}</p>
+          </span>
+          <span>
+            <i class="fa  fa-calendar"> 발매일</i> 
+            <p>${music.release}</p>
+          </span>
+        </div>
+      </td>
+      <td class="albumprice">￦ ${addComma(music.price)}</td>
+      <td class="albumqty">
+        <input 
+          type="number" 
+          class="form-control" 
+          value="${count}"
+          data-artist="${music.artist}"
+          data-album-name="${music.albumName}">
+      </td>
+      <td class="pricesum">￦ ${addComma(parseInt(music.price) * count)}</td>
+      <td>
+        <button 
+          class="btn btn-default" 
+          data-artist="${music.artist}"
+          data-album-name="${music.albumName}">
+            <i class="fa fa-trash-o"></i> 삭제
+        </button>
+      </td>
+    </tr>`
+  })
+  $('.modal-body tbody').html(html)
+  $('.totalprice span').text(`￦${addComma(total.price)}`)
 }
 const highlightSearchKeyword = str => {
   if (!model.searchKeyword) {
@@ -203,18 +258,39 @@ const initController = () => {
       setSearchKeyword($(this).val().trim())
 
       if (event.keyCode == 13) {
-        showContents()
+        initView()
       }
     })
     .on('click', '#main-menu .search .btn', function () {
-      showContents()
+      initView()
     })
     .on('click', '.shopbtn .btn', function () {
       const artist = String($(this).data('artist'))
       const albumName = String($(this).data('album-name'))
       addMusicInCart(artist, albumName)
-      showContents()
-      showCart()
+      initView()
+    })
+    .on('click', '.modal-footer .btn-primary', function () {
+      alert("결제가 완료되었습니다.")
+      $("#myModal").modal('hide')
+      clearCart()
+      initView()
+    })
+    .on('click', '.modal-body tbody .btn', function () {
+      const artist = String($(this).data('artist'))
+      const albumName = String($(this).data('album-name'))
+      removeMusicInCart(artist, albumName)
+      initView()
+    })
+    .on('input', '.albumqty .form-control', function () {
+      const input = $(this)
+      if (input.val() < 1) {
+        input.val(1)
+      }
+      const artist = String(input.data('artist'))
+      const albumName = String(input.data('album-name'))
+      changeCountOfMusic(artist, albumName, input.val())
+      initView()
     })
 }
 
