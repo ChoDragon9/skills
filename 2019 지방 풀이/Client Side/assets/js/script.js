@@ -7,8 +7,8 @@
 - [DONE] 앨범검색 INPUT에 검색어를 입력하고 검색 버튼을 클릭하거나 Enter키를 누르면 해당 Category의 앨범에서 앨범이름 또는 가수명이 검색어에 포함되는 앨범목록을 모두 보여 준다.
 - [DONE] 검색어와 일치하는 앨범이름 또는 가수명의 검색키워드를 하이라이트로 표시한다.
 - [DONE] 검색어와 일치하는 앨범이 없을 경우 “검색된 앨범이 없습니다.” 라고 나타낸다.
-- 카트담기, 추가하기 버튼을 클릭하면 상단 카트정보에 앨범수량과 가격이 합산되어 보여지며 카트담기 버튼은 추가하기 버튼 으로 변경된다.
-- 추가하기 버튼 에는 현재 해당앨범이 카트에 담긴 수량을 표시한다.
+- [DONE] 카트담기, 추가하기 버튼을 클릭하면 상단 카트정보에 앨범수량과 가격이 합산되어 보여지며 카트담기 버튼은 추가하기 버튼 으로 변경된다.
+- [DONE] 추가하기 버튼 에는 현재 해당앨범이 카트에 담긴 수량을 표시한다.
 
 [쇼핑카트]
 - 상단 카트정보를 클릭하면 Modal창이 열리고 카트에 담긴 앨범목록을 모두 보여준다. 목 록에는 앨범정보[앨범자켓이미지, 앨범이름, 아티스트, 발매일], 가격, 수량, 합계, 삭제에 대한 정확정보를 보여준다.
@@ -20,11 +20,6 @@
 [공통]
 - 앨범리스트, 쇼핑카트의 모든 정보가 브라우저를 종료하고 다시 접속하여도 정상적으로 유지되어야 한다.
 - 가격정보가(가격, 합계, 총 합계금액) 4자리 이상일 경우 3자리마다 콤마(,)를 표기하고 ₩단위를 나타낸다.
-
-1. 기본적으로 모델-뷰-컨트롤러 구분합니다.(MVC 패턴이라고 합니다.)
-- 모델은 music_data.json 같은 외부 파일, localStorage, 현재선택된 카테고리, 검색어 등을 의미합니다.
-- 뷰는 모델을 사용하여 메뉴나 Content 영역을 보여주는 역할을 합니다.
-- 컨트롤러는 메뉴 클릭, 검색 버튼 클릭, Enter 키 누르기와 같은 이벤트를 의미힙니다.
 */
 const toNumber = date => Number(date.split('.').join(''))
 
@@ -32,7 +27,10 @@ const toNumber = date => Number(date.split('.').join(''))
 const model = {
   musicData: [],
   currentCategory: 'ALL',
-  searchKeyword: ''
+  searchKeyword: '',
+  cart: [
+    // { music, count }
+  ]
 }
 const initModel = result => {
   result.data.sort((a, b) => {
@@ -71,6 +69,20 @@ const getCategories = () => {
 const setSearchKeyword = keyword => {
   model.searchKeyword = keyword
 }
+const addMusicInCart = (artist, albumName) => {
+  const musicInCart = findMusicInCart(artist, albumName)
+  if (musicInCart) {
+    musicInCart.count++
+  } else {
+    model.cart.push({
+      music: model.musicData.find(music => music.artist === artist && music.albumName === albumName),
+      count: 1
+    })
+  }
+}
+const findMusicInCart = (artist, albumName) => {
+  return model.cart.find(({music}) => music.artist === artist && music.albumName === albumName)
+}
 
 // View
 const showCategory = () => {
@@ -103,6 +115,7 @@ const showContents = () => {
   }
   const html = musicData
     .map(({albumJaketImage, albumName, artist, release, price}) => {
+      const musicInCart = findMusicInCart(artist, albumName)
       return `<div class="col-md-2 col-sm-2 col-xs-2 product-grid">
         <div class="product-items">
           <div class="project-eff">
@@ -123,8 +136,12 @@ const showContents = () => {
               <p>￦${price}</p>
             </span>
             <span class="shopbtn">
-              <button class="btn btn-default btn-xs">
-                <i class="fa fa-shopping-cart"></i> 쇼핑카트담기
+              <button 
+                class="btn btn-default btn-xs" 
+                data-artist="${artist}"
+                data-album-name="${albumName}">
+                <i class="fa fa-shopping-cart"></i> 
+                ${musicInCart ? `추가하기 (${musicInCart.count}개)` : '쇼핑카트담기'}
               </button>
             </span>
           </div>
@@ -134,16 +151,30 @@ const showContents = () => {
     .join('')
   container.html(html)
 }
+const showCart = () => {
+  const total = {price: 0, count: 0}
+  model.cart.map(({music, count}) => {
+    total.price += parseInt(music.price) * count
+    total.count += count
+  })
+  $('.navbar .panel-body > .btn').html(
+    `<i class="fa fa-shopping-cart"></i> 쇼핑카트 <strong>${total.count}</strong> 개 금액 ￦ ${total.price}원`
+  )
+}
 const highlightSearchKeyword = str => {
   if (!model.searchKeyword) {
     return str
   }
-  return str.replace(new RegExp(model.searchKeyword, 'g'), `<span style="background-color: #ffff00; display: inline">${model.searchKeyword}</span>`)
+  return str.replace(
+    new RegExp(model.searchKeyword, 'g'),
+    `<span style="background-color: #ffff00; display: inline">${model.searchKeyword}</span>`
+  )
 }
 const initView = () => {
   showCategory()
   showTitle()
   showContents()
+  showCart()
 }
 
 // Controller
@@ -162,6 +193,13 @@ const initController = () => {
     })
     .on('click', '#main-menu .search .btn', function () {
       showContents()
+    })
+    .on('click', '.shopbtn .btn', function () {
+      const artist = $(this).data('artist')
+      const albumName = $(this).data('album-name')
+      addMusicInCart(artist, albumName)
+      showContents()
+      showCart()
     })
 }
 
