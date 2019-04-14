@@ -1,0 +1,99 @@
+/* Reset */
+html, body {width: 100%; height: 100%; font-family: "Century Gothic", Arial, Helvetica, sans-serif}
+* {margin: 0; padding: 0; box-sizing: border-box; }
+ul, li {list-style: none}
+a {text-decoration: none}
+input, button, textarea {border: 0}
+h1, h2, h3 {font-weight: normal}
+
+/* Common */
+.anchor--color-white {color: #fff}
+.txt--uppercase {text-transform: uppercase}
+
+.wrapper {width: 1140px; margin:0 auto}
+
+/* Header */
+.header {position: relative; height: 700px; overflow: hidden}
+
+.header__gnb {position: relative; z-index: 10; height: 116px; overflow: hidden}
+.header__gnb__logo {width: 174px; float: left; margin-top: 40px;}
+.header__gnb__nav {width: 960px; float: right; margin-top: 95px;}
+.header__gnb__nav__menu {float: right; font-size: 20px;}
+.header__gnb__nav__menu__item {display: inline; margin-left: 35px;}
+
+.header__copy {position: relative; z-index: 10; width: 1000px; height: 150px; margin: 275px 70px 0 70px; background: url(./source_files/bg_copy.png) no-repeat;}
+.header__copy__txt {width: 500px; height: 100%; float: left; padding: 30px 0 0 88px; color: #fff;}
+.header__copy__txt__title {margin-bottom: 10px; font-size: 40px;line-height: 35px; font-weight: bold}
+.header__copy__txt__desc {font-size: 14px;}
+.header__copy__social {width: 463px; height: 100%; float: left; padding: 86px 0 0 240px;}
+.header__copy__social__icon {margin-right: 26px; float: left;}
+.header__slide {width: 20px; float: right; margin-top: -105px; margin-right: 85px;}
+.header__slide__btn {position: relative; z-index: 10; margin-bottom: 10px;}
+.header__slide__bg { position: absolute; z-index: 9; top: 0; left: 0; width: 100%; height: 700px; background: url(./source_files/bg_slide.png) no-repeat; transition: background-position-x .5s; }
+.header__slide__btn:nth-of-type(1):checked ~.header__slide__bg {background-position-x: 0}
+.header__slide__btn:nth-of-type(2):checked ~.header__slide__bg {background-position-x: -1920px}
+.header__slide__btn:nth-of-type(3):checked ~.header__slide__bg {background-position-x: -3840px}
+
+/* side bar */
+.snb {position: fixed; top: 0; right: 0; z-index: 11; min-width: 60px; height: 100%; }
+.snb__toggle {position: absolute; z-index: 11; top: 74px; right: 0; width: 60px; height: 60px; background: none; outline: 0}
+.snb__toggle:focus + .snb__nav {right: 0}
+.snb__nav {position: absolute; right: -390px; transition: right .5s; z-index: 10; width: 390px; height: 100%; padding-top: 145px; background: rgba(255, 82, 30, .6); text-align: center;}
+.snb__nav__menu {margin-bottom: 40px; font-size: 25px}
+
+/* Welcome */
+.welcome {height: 405px; overflow: hidden; text-align: center;}
+.welcome__title {margin-top: 110px; font-size: 30px; color: #606060}
+.welcome__desc {margin-top: 35px; font-size: 18px; color: #999}
+.welcome__btns {margin-top: 27px;}
+.welcome__btns__btn {position: relative; width: 140px; height: 35px; line-height: 33px; border: solid 2px #a1a1a1; margin-right: 18px; font-size: 16px; color: #878787;}
+.welcome__btns__btn__icon {position: absolute; left: -3px; top: -3px;}
+
+/* Info graph */
+.info-graph {height: 450px; overflow: hidden; padding-top: 106px; background: url(./source_files/img_contents.png) no-repeat}
+.info-graph__item {width: 150px; float: left; color: #fff; text-align: center;}
+.info-graph__item--margin {margin-left: 180px;}
+.info-graph__item__icon {margin-bottom: 44px;}
+.info-graph__item__num {margin-bottom: 10px; font-size: 60px; line-height: 50px}
+.info-graph__item__title {font-size: 20px;}
+
+/* TESTIMONIALS */
+.gallery {height: 640px; overflow: hidden; text-align: center;}
+.gallery__title {margin-top: 110px; font-size: 30px; color: #606060}
+.gallery__items {margin-top: 76px;}
+.gallery__items__item {width: 261px; float: left;}
+.gallery__items__item--margin {margin-left: 31px;}
+.gallery__items__item__img {position: relative; height: 200px; overflow: hidden}
+.gallery__items__item__img__more {position: absolute; right: 0; bottom: 0}
+.gallery__items__item__desc {margin-top: 20px; font-size: 18px; color: #999}
+.gallery__items__item__title {margin-top: 16px; font-size: 20px; color: #333}
+
+/* newletter */
+.newletter {height: 100px; overflow: hidden; background: #ff521e}
+.newletter__title {width: 390px; line-height: 100px; float: left; font-size: 30px; color: #fff}
+.newletter__subscribe {width: 693px; float: right; padding-top: 29px;}
+.newletter__subscribe__input {width: 400px; height: 50px; float: left; margin-right: 17px; padding-left: 22px; font-size: 25px; color: #999; background: #fff}
+.newletter__subscribe__btn {width: 276px; height: 50px; font-size: 25px; color: #fff; background: #656565}
+
+/* footer */
+.footer {overflow: hidden; background: url(./source_files/bg_footer.png) no-repeat}
+
+/* contact */
+.contact {height: 470px; overflow: hidden; padding-top: 63px;}
+.contact__info {width: 390px; float: left;}
+.contact__info__item {margin-bottom: 45px;}
+.contact__info__item__icon {width: 39px; float: left; }
+.contact__info__item__txt {font-size: 20px; color: #fff}
+.contact__form {width: 748px; float: right;}
+.contact__form__item {margin-bottom: 20px;}
+.contact__form__item--common {background: rgba(255, 255, 255, .3); padding: 10px 22px; color: #fff; font-size: 25px;}
+.contact__form__input {width: 100%; height: 50px; }
+.contact__form__input::placeholder {color: #fff}
+.contact__form__input--half {width: 360px;}
+.contact__form__input--margin {margin-right: 23px;}
+.contact__form__textarea {width: 100%; height: 122px;}
+.contact__form__textarea::placeholder {color: #fff}
+.contact__form__btn {width: 100%; height: 50px; font-size: 25px; color: #fff; background: #656565}
+
+/* copyright */
+.copyright {height: 187px; overflow: hidden; font-size: 20px; color: #fff; text-align: center; line-height: 187px}
