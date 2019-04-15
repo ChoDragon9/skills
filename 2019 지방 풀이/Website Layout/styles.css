@@ -7,8 +7,9 @@ input, button, textarea {border: 0}
 h1, h2, h3 {font-weight: normal}
 
 /* Common */
-.anchor--color-white {color: #fff}
+.anchor--color--white {color: #fff}
 .txt--uppercase {text-transform: uppercase}
+.img--width {width: 100%; display: block}
 
 .wrapper {width: 1140px; margin:0 auto}
 
@@ -18,8 +19,8 @@ h1, h2, h3 {font-weight: normal}
 .header__gnb {position: relative; z-index: 10; height: 116px; overflow: hidden}
 .header__gnb__logo {width: 174px; float: left; margin-top: 40px;}
 .header__gnb__nav {width: 960px; float: right; margin-top: 95px;}
-.header__gnb__nav__menu {float: right; font-size: 20px;}
-.header__gnb__nav__menu__item {display: inline; margin-left: 35px;}
+.header__gnb__nav__list {float: right; font-size: 20px;}
+.header__gnb__nav__list__item {display: inline; margin-left: 35px;}
 
 .header__copy {position: relative; z-index: 10; width: 1000px; height: 150px; margin: 275px 70px 0 70px; background: url(./source_files/bg_copy.png) no-repeat;}
 .header__copy__txt {width: 500px; height: 100%; float: left; padding: 30px 0 0 88px; color: #fff;}
@@ -34,12 +35,13 @@ h1, h2, h3 {font-weight: normal}
 .header__slide__btn:nth-of-type(2):checked ~.header__slide__bg {background-position-x: -1920px}
 .header__slide__btn:nth-of-type(3):checked ~.header__slide__bg {background-position-x: -3840px}
 
+
 /* side bar */
 .snb {position: fixed; top: 0; right: 0; z-index: 11; min-width: 60px; height: 100%; }
 .snb__toggle {position: absolute; z-index: 11; top: 74px; right: 0; width: 60px; height: 60px; background: none; outline: 0}
-.snb__toggle:focus + .snb__nav {right: 0}
-.snb__nav {position: absolute; right: -390px; transition: right .5s; z-index: 10; width: 390px; height: 100%; padding-top: 145px; background: rgba(255, 82, 30, .6); text-align: center;}
-.snb__nav__menu {margin-bottom: 40px; font-size: 25px}
+.snb__toggle:focus + .snb__list {right: 0}
+.snb__list {position: absolute; right: -390px; transition: right .5s; z-index: 10; width: 390px; height: 100%; padding-top: 145px; background: rgba(255, 82, 30, .6); text-align: center;}
+.snb__list__item {margin-bottom: 40px; font-size: 25px}
 
 /* Welcome */
 .welcome {height: 405px; overflow: hidden; text-align: center;}
@@ -64,7 +66,7 @@ h1, h2, h3 {font-weight: normal}
 .gallery__items__item {width: 261px; float: left;}
 .gallery__items__item--margin {margin-left: 31px;}
 .gallery__items__item__img {position: relative; height: 200px; overflow: hidden}
-.gallery__items__item__img__more {position: absolute; right: 0; bottom: 0}
+.gallery__items__item__img__more {position: absolute; right: 0; bottom: 0; width: 50px; height: 50px;}
 .gallery__items__item__desc {margin-top: 20px; font-size: 18px; color: #999}
 .gallery__items__item__title {margin-top: 16px; font-size: 20px; color: #333}
 
@@ -97,3 +99,55 @@ h1, h2, h3 {font-weight: normal}
 
 /* copyright */
 .copyright {height: 187px; overflow: hidden; font-size: 20px; color: #fff; text-align: center; line-height: 187px}
+
+
+@media (max-width: 1140px) {
+  .wrapper {width: 100%; padding: 0 20px; margin: 0}
+
+  .header {height: auto}
+  .header__gnb {height: auto}
+  .header__gnb__logo {width: 100%; margin: 0}
+  .header__gnb__nav {width: 100%; margin: 0}
+
+  .header__copy {width: 100%; margin: 20px 0; overflow: hidden}
+  .header__copy__txt {width: 50%; padding: 20px;}
+  .header__copy__social {width: 50%; padding: 20px;}
+
+  .header__slide {margin-top: -130px; margin-right: 10px;}
+
+  .info-graph {height: auto; padding-top: 30px;}
+  .info-graph__item {width: 25%; padding: 20px;}
+  .info-graph__item--margin {margin: 0}
+  .info-graph__item__icon {margin-bottom: 20px;}
+  .info-graph__item__num {margin-bottom: 10px; font-size: 30px; line-height: 30px}
+  .info-graph__item__title {font-size: 15px;}
+
+  .gallery {height: auto}
+  .gallery__items {margin-top: 30px;}
+  .gallery__items__item {width: 50%; float: left; padding: 20px}
+  .gallery__items__item--margin {margin: 0px;}
+  .gallery__items__item__img {height: auto;}
+  .gallery__items__item__img__more {position: absolute; right: 0; bottom: 0}
+  .gallery__items__item__desc {margin-top: 20px; font-size: 18px; color: #999}
+  .gallery__items__item__title {margin-top: 16px; font-size: 20px; color: #333}
+
+  .newletter {height: auto}
+  .newletter__title {width: 100%; text-align: center}
+  .newletter__subscribe {width: 100%; float: right; padding: 0 20px 20px 20px}
+  .newletter__subscribe__input {width: 55%; margin-right: 5%;}
+  .newletter__subscribe__btn {width: 40%;}
+
+  .contact__info {width: 40%}
+  .contact__info__item {margin-bottom: 45px;}
+  .contact__info__item__icon {width: 39px; float: left; }
+  .contact__info__item__txt {font-size: 20px; color: #fff}
+  .contact__form {width: 60%}
+  .contact__form__item {margin-bottom: 20px;}
+  .contact__form__item--common {padding: 10px 22px; font-size: 20px;}
+  .contact__form__input {width: 100%; height: 40px;}
+  .contact__form__input::placeholder {color: #fff}
+  .contact__form__input--half {width: 100%;}
+  .contact__form__input--margin {margin-right: 0; margin-bottom: 20px;}
+  .contact__form__textarea {}
+  .contact__form__btn {height: 40px;}
+}
