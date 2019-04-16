@@ -100,7 +100,7 @@ h1, h2, h3 {font-weight: normal}
 /* copyright */
 .copyright {height: 187px; overflow: hidden; font-size: 20px; color: #fff; text-align: center; line-height: 187px}
 
-
+/*
 @media (max-width: 1140px) {
   .wrapper {width: 100%; padding: 0 20px; margin: 0}
 
@@ -151,4 +151,4 @@ h1, h2, h3 {font-weight: normal}
   .contact__form__input--margin {margin-right: 0; margin-bottom: 20px;}
   .contact__form__textarea {}
   .contact__form__btn {height: 40px;}
-}
+}*/
