@@ -6,5 +6,5 @@
 ### MySQL 기본 명령어 참고
 https://github.com/ChoDragon9/skills/wiki/MySQL-%EA%B8%B0%EB%B3%B8-CRUD-%EB%AA%85%EB%A0%B9%EC%96%B4
 
-### PHP에 대한 기본 설명
-https://github.com/ChoDragon9/skills/wiki/PHP-%EA%B8%B0%EC%B4%88
+### PHP 프로그래밍 교재
+http://webskills.kr/2018/data/PHP_Web_Programming.pdf
