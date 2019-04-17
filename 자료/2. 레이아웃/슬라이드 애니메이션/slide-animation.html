@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {margin: 0; padding: 0}
+
+    .animation__wrapper {width: 400px; height: 250px; overflow: hidden}
+    .animation {width: 1200px; height: 250px; float: left}
+    .animation__slide {width: 400px; height: 250px; float:left; overflow: hidden; position: relative;}
+    .animation__slide__img {width: 100%; }
+
+    /* 텍스트 애니메이션 */
+    .animation__slide > div {position: absolute; left: 0; bottom: 0; background: rgba(0, 0, 0, .3); color: #fff; width: 400px; padding: 10px}
+    .animation__slide__txt1:before {content: ' '; animation: slideText1 3s infinite}
+    .animation__slide__txt2:before {content: ' '; animation: slideText2 3s infinite}
+    .animation__slide__txt3:before {content: ' '; animation: slideText3 3s infinite}
+
+    @keyframes slideText1 {
+      0% { content: '빵' }
+      10% { content: '빵들' }
+      20% { content: '빵들과' }
+      30% { content: '빵들과 ' }
+      40% { content: '빵들과 나' }
+      50% { content: '빵들과 나무' }
+      60% { content: '빵들과 나무인' }
+      70% { content: '빵들과 나무인형' }
+      80% { content: '빵들과 나무인형 입' }
+      90% { content: '빵들과 나무인형 입니' }
+      100% { content: '빵들과 나무인형 입니다' }
+    }
+    @keyframes slideText2 {
+      0% { content: '행' }
+      10% { content: '행복' }
+      20% { content: '행복을' }
+      30% { content: '행복을 전 ' }
+      40% { content: '행복을 전하' }
+      50% { content: '행복을 전하는' }
+      60% { content: '행복을 전하는 빵' }
+      70% { content: '행복을 전하는 빵집' }
+      100% { content: '행복을 전하는 빵집' }
+    }
+    @keyframes slideText3 {
+      0% { content: '실' }
+      10% { content: '실용' }
+      20% { content: '실용적' }
+      30% { content: '실용적인 ' }
+      40% { content: '실용적인 가' }
+      50% { content: '실용적인 가격' }
+      60% { content: '실용적인 가격대' }
+      70% { content: '실용적인 가격대의' }
+      80% { content: '실용적인 가격대의 가' }
+      85% { content: '실용적인 가격대의 가방' }
+      90% { content: '실용적인 가격대의 가방 브' }
+      95% { content: '실용적인 가격대의 가방 브랜' }
+      100% { content: '실용적인 가격대의 가방 브랜드' }
+    }
+  </style>
+</head>
+<body>
+<div class="animation__wrapper">
+  <div class="animation">
+    <div class="animation__slide">
+      <img src="./1.jpg" class="animation__slide__img">
+      <div class="animation__slide__txt1"></div>
+    </div>
+    <div class="animation__slide">
+      <img src="./2.jpg" class="animation__slide__img">
+      <div class="animation__slide__txt2"></div>
+    </div>
+    <div class="animation__slide">
+      <img src="./3.jpg" class="animation__slide__img">
+      <div class="animation__slide__txt3"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(function () {
+  var slideLength = 3
+  var slideWidth = 400
+  var animationTime = 3000
+  var currentAnimation = 0
+
+  setInterval(function () {
+    $('.animation').animate({
+      marginLeft: (currentAnimation * -slideWidth) + 'px'
+    })
+    currentAnimation++
+
+    if (currentAnimation === slideLength) {
+      currentAnimation = 0
+    }
+  }, animationTime)
+})
+</script>
+</body>
+</html>
