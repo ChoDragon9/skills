@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .grid_wrapper {
+      display: grid;
+      grid-template-columns: var(--logo-width) auto;
+      grid-template-rows: var(--header-height) calc(var(--header-content-gap) + var(--content-height));
+    }
+    .grid__header__navi {
+      display: grid;
+      justify-content: end;
+      align-content: center;
+      grid-gap: var(--navi-margin);
+      grid-template-columns: auto auto auto auto auto;
+      padding-right: var(--navi-margin)
+    }
+    .grid__container {
+      display: grid;
+      justify-content: center;
+      align-content: end;
+      grid-area: 2 / 1 / 2 / 3;
+      grid-template-columns: calc(100% - var(--content-gap) * 2);
+      grid-template-rows: var(--content-height);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Grid</h1>
+<div class="wrapper grid_wrapper">
+  <div class="grid__header__logo"></div>
+  <ul class="grid__header__navi">
+    <li><a href="">메뉴1</a></li>
+    <li><a href="">메뉴2</a></li>
+    <li><a href="">메뉴3</a></li>
+    <li><a href="">메뉴4</a></li>
+    <li><a href="">메뉴5</a></li>
+  </ul>
+  <div class="grid__container">
+    <div class="grid__container__content"></div>
+  </div>
+</div>
+
+</body>
+</html>

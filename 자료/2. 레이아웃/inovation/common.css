@@ -1,0 +1,23 @@
+:root {
+  --logo-width: 200px;
+  --header-height: 150px;
+  --header-content-gap: 200px;
+  --content-height: 100px;
+  --content-gap: 50px;
+  --navi-margin: 20px;
+}
+
+/*Reset*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul {list-style: none}
+h1 {text-align: center}
+
+/*Common*/
+.wrapper {width: 1024px; height: 500px; margin: 20px auto; background: #C0E1F5}
+@media (max-width: 1024px) {
+  .wrapper {width: 100%}
+}
+[class$="header"] {background: #5DA6D8}
+[class$="container"] {background: #AED9F6}
+[class$="logo"] {background: #585772}
+[class$="content"] {background: #5DA6D8}

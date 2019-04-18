@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    .flex__header {
+      display: flex
+    }
+    .flex__header__logo {
+      width: var(--logo-width);
+      height: var(--header-height);
+    }
+    .flex__header__navi {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1;
+    }
+    .flex__header__navi li {
+      margin-right: var(--navi-margin);
+    }
+    .flex__container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: calc(var(--header-content-gap) + var(--content-height))
+    }
+    .flex__container__content {
+      width: calc(100% - var(--content-gap) * 2);
+      height: var(--content-height);
+    }
+  </style>
+</head>
+<body>
+<h1>Flex</h1>
+<div class="wrapper">
+  <div class="flex__header">
+    <div class="flex__header__logo"></div>
+    <ul class="flex__header__navi">
+      <li><a href="">메뉴1</a></li>
+      <li><a href="">메뉴2</a></li>
+      <li><a href="">메뉴3</a></li>
+      <li><a href="">메뉴4</a></li>
+      <li><a href="">메뉴5</a></li>
+    </ul>
+  </div>
+  <div class="flex__container">
+    <div class="flex__container__content"></div>
+  </div>
+</div>
+</body>
+</html>
