@@ -1,0 +1,42 @@
+* {margin: 0; padding: 0; box-sizing: border-box}
+ul {list-style: none}
+div, nav, ul, li, form {padding: 10px; border: solid 1px #ccc}
+
+:root {
+  --content-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --content-width: 100%;
+  }
+}
+
+.wrapper {display: grid; grid-template-columns: 100%; grid-template-rows: repeat(7, auto);}
+.wrapper__content {display: grid; justify-content: center; align-content: center; grid-template-columns: var(--content-width); grid-template-rows: auto;}
+
+.header { display: grid; grid-template-columns: 200px auto; grid-template-rows: 150px 400px;}
+.header__slide { display: grid; grid-area: 2 / 1 / 2 / 3; justify-content: center; align-content: end; grid-template-columns: 80%; grid-template-rows: 150px;}
+
+.welcome { display: grid; grid-template-columns: 50%; grid-template-rows: 100px 150px 50px; justify-content: center; text-align: center;}
+.welcome__btn { display: grid; grid-gap: 20px; grid-template-columns: 80px 80px; justify-content: center;}
+
+.gallery { display: grid; grid-template-columns: repeat(4, 150px); grid-template-rows: 200px; justify-content: space-between;}
+
+.contact { display: grid; grid-template-columns: 300px auto; grid-template-rows: 400px;}
+.contact__info {display: grid; grid-gap: 50px}
+.contact__form {
+  display: grid;
+  grid-template:
+          'input input' 50px
+          'subject subject' 50px
+          'content content' 100px
+          'submit submit' 50px
+          / 50% 50%;
+  grid-gap: 20px;
+}
+.contact__form > div {display: grid; grid-template-columns: 100%; grid-template-rows: 100%;}
+.contact__form__subject {grid-area: subject}
+.contact__form__content {grid-area: content}
+.contact__form__submit {grid-area: submit}
+.footer {text-align: center}
