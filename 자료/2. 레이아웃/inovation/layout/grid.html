@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box}
+    ul {list-style: none}
+    div, nav {padding: 10px; border: solid 1px #ccc}
+
+    :root {
+      --content-width: 1200px;
+    }
+
+    @media (max-width: 1200px) {
+      :root {
+        --content-width: 100%;
+      }
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto auto auto auto auto auto auto;
+    }
+    .wrapper__content {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      grid-template-columns: var(--content-width);
+      grid-template-rows: auto;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 200px auto;
+      grid-template-rows: 150px 400px;
+    }
+
+    .header__slide {
+      display: grid;
+      grid-area: 2 / 1 / 2 / 3;
+      justify-content: center;
+      align-content: end;
+      grid-template-columns: 80%;
+      grid-template-rows: 150px;
+    }
+
+    .welcome {
+      display: grid;
+      grid-template-columns: 50%;
+      grid-template-rows: 100px 150px 50px;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .welcome__btn {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 80px 80px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="wrapper__content">
+    <div class="header">
+      <div class="header__logo"></div>
+      <div class="header__nav"></div>
+      <div class="header__slide">
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper__content">
+    <div class="welcome">
+      <h2>Welcome</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consequatur distinctio ducimus earum eius exercitationem, id in inventore libero mollitia natus nemo officiis, optio placeat possimus praesentium quisquam sunt!</p>
+      <div class="welcome__btn">
+        <button>Hello</button>
+        <button>World</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper__content">
+    <div></div>
+  </div>
+  <div class="wrapper__content">
+    <div></div>
+  </div>
+  <div class="wrapper__content">
+    <div></div>
+  </div>
+  <div class="wrapper__content">
+    <div></div>
+  </div>
+  <div class="wrapper__content">
+    <div></div>
+  </div>
+</div>
+</body>
+</html>
