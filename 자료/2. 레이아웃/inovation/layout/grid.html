@@ -9,7 +9,7 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box}
     ul {list-style: none}
-    div, nav {padding: 10px; border: solid 1px #ccc}
+    div, nav, ul, li, form {padding: 10px; border: solid 1px #ccc}
 
     :root {
       --content-width: 1200px;
@@ -63,6 +63,53 @@
       grid-template-columns: 80px 80px;
       justify-content: center;
     }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 150px 150px 150px 150px;
+      grid-template-rows: 200px;
+      justify-content: space-between;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 300px auto;
+      grid-template-rows: 400px;
+    }
+
+    .contact__info {
+      display: grid;
+      grid-gap: 50px
+    }
+
+    .contact__form {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50px;
+      grid-gap: 20px;
+    }
+
+    .contact__form > div {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 100%;
+    }
+
+    .contact__form__subject {
+      grid-area: 2 / 1 / 2 / 3;
+    }
+
+    .contact__form__content {
+      grid-area: 3 / 1 / 3 / 3;
+    }
+
+    .contact__form__submit {
+      grid-area: 4 / 1 / 4 / 3;
+    }
+
+    .footer {
+      text-align: center
+    }
   </style>
 </head>
 <body>
@@ -87,19 +134,44 @@
     </div>
   </div>
   <div class="wrapper__content">
-    <div></div>
+    <ul class="gallery">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
   <div class="wrapper__content">
-    <div></div>
+    <div class="contact">
+      <ul class="contact__info">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <form action="" class="contact__form">
+        <div>
+          <input type="text">
+        </div>
+        <div>
+          <input type="text">
+        </div>
+        <div class="contact__form__subject">
+          <input type="text">
+        </div>
+        <div class="contact__form__content">
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="contact__form__submit">
+          <button></button>
+        </div>
+      </form>
+    </div>
   </div>
   <div class="wrapper__content">
-    <div></div>
-  </div>
-  <div class="wrapper__content">
-    <div></div>
-  </div>
-  <div class="wrapper__content">
-    <div></div>
+    <div class="footer">
+      <p>Copyright (c) All Right Reserved.</p>
+    </div>
   </div>
 </div>
 </body>
