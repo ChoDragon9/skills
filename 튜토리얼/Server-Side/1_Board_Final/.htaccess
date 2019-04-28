@@ -1,0 +1,16 @@
+# Rewrite란, 페이지의 주소(url)를 재해석 하는 과정입니다.
+RewriteEngine On # Rewrite를 사용함
+RewriteRule ^([^.]+)$ index.php?param=$1 [L,QSA]
+
+# 위의 규칙(Rule)은 다음과 같은 의미를 가진다.
+# 주소에 .(dot)이 아닌 문자열이 포함되어있을 경우, index.php?$param=(주소) 형태로 변환한다.
+# 즉, static 파일을 감지하는 역할을 한다.
+# ex 1) /test.php       => /test.php  (.이 포함되어있음)
+# ex 2) /style.css      => /style.css (.이 포함되어있음)
+# ex 3) /script.js      => /script.js (.이 포함되어있음)
+# ex 4) /img/1.jpg      => /img/1.jpg  (.이 포함되어있지 않음)
+
+# static 파일이 아닐 경우는 
+# ex 5) /test           => /index.php?param=test          (.이 포함되어있지 않음)
+# ex 6) /member/login   => /index.php?param=member/login  (.이 포함되어있지 않음)
+# ex 7) /board/view     => /index.php?param=board/view    (.이 포함되어있지 않음)
