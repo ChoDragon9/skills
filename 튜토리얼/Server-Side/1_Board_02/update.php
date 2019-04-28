@@ -1,9 +1,9 @@
 <?php
   // 기존의 입력 정보 가져오기
-  $sql = "SELECT * FROM board WHERE idx = '{$_GET['idx']}'";
+  $sql = "SELECT * FROM board WHERE idx = '{$idx}'";
   $row = $db->query($sql)->fetch(PDO::FETCH_OBJ);
 ?>
-<form action="./update_ok.php?idx=<?php echo $_GET['idx']?>" method="post">
+<form action="./update_ok.php?idx=<?php echo $idx?>" method="post">
   <fieldset>
     <legend>글작성</legend>
     <ul>

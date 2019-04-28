@@ -1,6 +1,6 @@
 <?php
   // 기본 DB 정보 가져오기
-  $sql = "SELECT * FROM board WHERE idx = '{$_GET['idx']}'";
+  $sql = "SELECT * FROM board WHERE idx = '{$idx}'";
   $row = $db->query($sql)->fetch(PDO::FETCH_OBJ);
 ?>
 <form action="" method="post">
@@ -28,7 +28,7 @@
       </li>
       <li>
         <button type="submit">완료</button>
-        <button type="button" onclick="location.href = './?page=view&amp;idx=<?php echo $row->idx?>'">취소</button>
+        <button type="button" onclick="location.href = './?page=view&amp;idx=<?php echo $idx?>'">취소</button>
       </li>
     </ul>
   </fieldset>

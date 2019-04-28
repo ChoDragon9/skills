@@ -1,7 +1,7 @@
 <?php
   // 기본 DB 정보 가져오기
   $sql = "SELECT * FROM board WHERE idx = '{$idx}'";
-  $row = $db->query($sql)->fetch(PDO::FETCH_OBJ);
+  $row = fetch($sql);
 ?>
 <form action="" method="post">
   <fieldset>

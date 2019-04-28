@@ -1,6 +1,6 @@
 <?php
   // 기존의 입력 정보 가져오기
-  $sql = "SELECT * FROM board WHERE idx = '{$_GET['idx']}'";
+  $sql = "SELECT * FROM board WHERE idx = '{$idx}'";
   $row = $db->query($sql)->fetch(PDO::FETCH_OBJ);
 ?>
 <ul>
@@ -11,7 +11,7 @@
   <li><?php echo $row->content ?></li>
 </ul>
 <p>
-  <a href="./?page=update&amp;idx=<?php echo $row->idx?>">수정</a>
-  <a href="./delete.php?idx=<?php echo $row->idx?>">삭제</a>
+  <a href="./?page=update&amp;idx=<?php echo $idx?>">수정</a>
+  <a href="./delete.php?idx=<?php echo $idx?>">삭제</a>
   <a href="./">목록</a>
 </p>

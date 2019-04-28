@@ -1,5 +1,5 @@
 <?php
-  $sql = "SELECT * FROM board WHERE idx = '{$_GET['idx']}'";
+  $sql = "SELECT * FROM board WHERE idx = '{$idx}'";
   $row = $db->query($sql)->fetch(PDO::FETCH_OBJ);
 ?>
 <!-- delete를 위한 form을 생성한다. -->
@@ -15,7 +15,7 @@
   <li><?php echo $row->content ?></li>
 </ul>
 <p>
-  <a href="./?page=update&amp;idx=<?php echo $row->idx?>">수정</a>
+  <a href="./?page=update&amp;idx=<?php echo $idx?>">수정</a>
   <!-- javascript를 이용하여 '삭제'링크를 클릭 시, form을 전송하도록 한다. -->
   <a href="#" onclick="document.forms[0].submit(); return false;">삭제</a>
   <a href="./">목록</a>
